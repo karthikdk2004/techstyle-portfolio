@@ -1,5 +1,5 @@
 
-import { Code, Brain, CircuitBoard, Tool } from "lucide-react";
+import { Code, Brain, CircuitBoard, Wrench } from "lucide-react";
 
 const Skills = () => {
   const skillCategories = [
@@ -20,7 +20,7 @@ const Skills = () => {
     },
     {
       title: "Tools",
-      icon: <Tool className="text-primary" size={24} />,
+      icon: <Wrench className="text-primary" size={24} />,
       skills: ["AutoCAD", "MATLAB", "NI Multisim", "Xilinx Design Suite", "Linux", "Git"],
     },
   ];
