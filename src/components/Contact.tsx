@@ -1,7 +1,54 @@
 
 import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { useState } from "react";
+import { supabase } from "@/integrations/supabase/client";
+import { useToast } from "@/hooks/use-toast";
+import { Toaster } from "@/components/ui/toaster";
 
 const Contact = () => {
+  const { toast } = useToast();
+  const [isLoading, setIsLoading] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+
+    try {
+      const { error } = await supabase.from("messages").insert([formData]);
+
+      if (error) throw error;
+
+      toast({
+        title: "Message sent successfully!",
+        description: "Thank you for reaching out. I'll get back to you soon.",
+      });
+
+      // Reset form
+      setFormData({ name: "", email: "", message: "" });
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast({
+        variant: "destructive",
+        title: "Error sending message",
+        description: "Please try again later.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   return (
     <section id="contact" className="py-20 bg-black">
       <div className="container mx-auto px-6">
@@ -17,7 +64,7 @@ const Contact = () => {
         <div className="grid md:grid-cols-2 gap-12 items-start">
           {/* Contact Form */}
           <div className="glass rounded-xl p-8">
-            <form className="space-y-6">
+            <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label htmlFor="name" className="block text-sm font-medium mb-2">
                   Name
@@ -25,6 +72,9 @@ const Contact = () => {
                 <input
                   type="text"
                   id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 bg-white/5 rounded-lg border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                   required
                 />
@@ -36,6 +86,9 @@ const Contact = () => {
                 <input
                   type="email"
                   id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="w-full px-4 py-2 bg-white/5 rounded-lg border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                   required
                 />
@@ -46,6 +99,9 @@ const Contact = () => {
                 </label>
                 <textarea
                   id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   className="w-full px-4 py-2 bg-white/5 rounded-lg border border-white/10 focus:border-primary focus:ring-1 focus:ring-primary transition-colors"
                   required
@@ -53,9 +109,10 @@ const Contact = () => {
               </div>
               <button
                 type="submit"
-                className="w-full px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+                disabled={isLoading}
+                className="w-full px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Send Message
+                {isLoading ? "Sending..." : "Send Message"}
               </button>
             </form>
           </div>
@@ -98,6 +155,7 @@ const Contact = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </section>
   );
 };
