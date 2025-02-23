@@ -3,16 +3,12 @@ import { ArrowDown } from "lucide-react";
 import { useEffect } from "react";
 import Typewriter from "typewriter-effect";
 import { tsParticles } from "tsparticles-engine";
-import { loadFull } from "tsparticles";
+import { loadSlim } from "tsparticles-slim";
 
 const Hero = () => {
-  const particlesInit = async (main: any) => {
-    await loadFull(main);
-  };
-
   useEffect(() => {
     const initParticles = async () => {
-      await particlesInit(tsParticles);
+      await loadSlim(tsParticles);
       
       await tsParticles.load("tsparticles", {
         particles: {
@@ -26,7 +22,7 @@ const Hero = () => {
           color: {
             value: "#FF5722"
           },
-          line_linked: {
+          links: {
             enable: true,
             distance: 150,
             color: "#FF5722",
@@ -39,21 +35,22 @@ const Hero = () => {
             direction: "none",
             random: false,
             straight: false,
-            out_mode: "out",
+            outModes: {
+              default: "out"
+            },
             bounce: false,
           }
         },
         interactivity: {
-          detect_on: "canvas",
           events: {
-            onhover: {
+            onHover: {
               enable: true,
               mode: "repulse"
             },
             resize: true
           }
         },
-        retina_detect: true
+        detectRetina: true
       });
     };
 
