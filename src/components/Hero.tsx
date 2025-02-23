@@ -7,8 +7,8 @@ const Hero = () => {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
       
       <div className="container mx-auto px-6 py-12 relative">
-        <div className="text-center space-y-6 animate-fade-up">
-          <div className="inline-block px-4 py-1.5 bg-primary/10 rounded-full mb-6">
+        <div className="glass-card p-8 md:p-12 text-center space-y-6 animate-fade-up max-w-4xl mx-auto">
+          <div className="inline-block px-4 py-1.5 glass rounded-full mb-6">
             <span className="text-primary font-medium">Full-Stack Developer & AI/ML Researcher</span>
           </div>
           
@@ -24,13 +24,13 @@ const Hero = () => {
           <div className="flex justify-center gap-4 mt-8">
             <a
               href="#projects"
-              className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors font-medium"
+              className="glass px-8 py-3 text-white rounded-lg hover:bg-white/5 transition-all duration-300 font-medium"
             >
               View My Work
             </a>
             <a
               href="#contact"
-              className="px-8 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors font-medium"
+              className="glass px-8 py-3 text-white rounded-lg hover:bg-white/5 transition-all duration-300 font-medium"
             >
               Get in Touch
             </a>
