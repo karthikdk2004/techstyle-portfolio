@@ -1,8 +1,8 @@
 
 import { ArrowDown } from "lucide-react";
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import Typewriter from "typewriter-effect";
-import Particles from "tsparticles";
+import { tsParticles } from "tsparticles-engine";
 import { loadFull } from "tsparticles";
 
 const Hero = () => {
@@ -11,47 +11,53 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    Particles.load('tsparticles', {
-      particles: {
-        number: {
-          value: 80,
-          density: {
+    const initParticles = async () => {
+      await particlesInit(tsParticles);
+      
+      await tsParticles.load("tsparticles", {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800
+            }
+          },
+          color: {
+            value: "#FF5722"
+          },
+          line_linked: {
             enable: true,
-            value_area: 800
+            distance: 150,
+            color: "#FF5722",
+            opacity: 0.2,
+            width: 1
+          },
+          move: {
+            enable: true,
+            speed: 2,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
           }
         },
-        color: {
-          value: "#FF5722"
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse"
+            },
+            resize: true
+          }
         },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#FF5722",
-          opacity: 0.2,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          random: false,
-          straight: false,
-          out_mode: "out",
-          bounce: false,
-        }
-      },
-      interactivity: {
-        detect_on: "canvas",
-        events: {
-          onhover: {
-            enable: true,
-            mode: "repulse"
-          },
-          resize: true
-        }
-      },
-      retina_detect: true
-    });
+        retina_detect: true
+      });
+    };
+
+    initParticles();
   }, []);
 
   return (
