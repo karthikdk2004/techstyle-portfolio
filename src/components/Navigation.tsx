@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Code2 } from "lucide-react";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,9 +34,12 @@ const Navigation = () => {
         <div className="flex items-center justify-between">
           <a
             href="#home"
-            className="text-white font-heading font-bold text-xl hover:text-primary transition-colors"
+            className="flex items-center gap-2 text-white font-heading font-bold text-xl hover:text-primary transition-colors group"
           >
-            D.KARTHIK
+            <Code2 className="w-6 h-6 text-primary group-hover:rotate-12 transition-transform" />
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-primary to-white">
+              KARTHIK
+            </span>
           </a>
           
           {/* Mobile menu button */}
