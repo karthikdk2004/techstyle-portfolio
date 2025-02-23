@@ -69,6 +69,30 @@
   .typewriter-cursor {
     @apply animate-blink;
   }
+
+  .tilt-card {
+    transform-style: preserve-3d;
+    transform: perspective(1000px);
+  }
+
+  .tilt-card-content {
+    transform: translateZ(20px);
+  }
+
+  .parallax-slow {
+    transform: translateY(var(--scroll-offset, 0));
+    transition: transform 0.1s linear;
+  }
+
+  .parallax-medium {
+    transform: translateY(calc(var(--scroll-offset, 0) * 1.5));
+    transition: transform 0.1s linear;
+  }
+
+  .parallax-fast {
+    transform: translateY(calc(var(--scroll-offset, 0) * 2));
+    transition: transform 0.1s linear;
+  }
 }
 
 @keyframes float {
@@ -108,4 +132,24 @@
 
 .animate-blink {
   animation: blink 0.7s infinite;
+}
+
+// Add smooth parallax scroll behavior
+.smooth-scroll {
+  @apply transition-all duration-300 ease-out;
+}
+
+// Add perspective to 3D transforms
+.perspective {
+  perspective: 1000px;
+}
+
+// Add depth to cards
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.3s ease;
+}
+
+.card-3d:hover {
+  transform: translateZ(20px);
 }

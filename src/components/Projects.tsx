@@ -1,5 +1,7 @@
 
 import { Github, ExternalLink } from "lucide-react";
+import { useEffect, useRef } from "react";
+import VanillaTilt from "vanilla-tilt";
 
 const Projects = () => {
   const projects = [
@@ -26,9 +28,37 @@ const Projects = () => {
     },
   ];
 
+  const tiltRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    tiltRefs.current.forEach((element) => {
+      if (element) {
+        VanillaTilt.init(element, {
+          max: 15,
+          speed: 400,
+          glare: true,
+          "max-glare": 0.2,
+          scale: 1.05,
+        });
+      }
+    });
+
+    return () => {
+      tiltRefs.current.forEach((element) => {
+        if (element) {
+          (element as any)?.vanillaTilt?.destroy();
+        }
+      });
+    };
+  }, []);
+
   return (
     <section id="projects" className="py-20 bg-secondary">
-      <div className="container mx-auto px-6">
+      <div 
+        className="container mx-auto px-6"
+        data-scroll
+        data-scroll-speed="0.2"
+      >
         <h2 className="text-3xl md:text-4xl font-heading font-bold text-center mb-16">
           Featured Projects
         </h2>
@@ -37,7 +67,8 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="glass rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-300 group"
+              ref={(el) => (tiltRefs.current[index] = el)}
+              className="glass rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-300 group transform-gpu"
             >
               <div className="p-6 space-y-4">
                 <h3 className="font-heading font-semibold text-xl group-hover:text-primary transition-colors">
