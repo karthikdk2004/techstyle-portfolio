@@ -74,10 +74,11 @@ const About = () => {
           <div className="lg:w-2/3 space-y-6 slide-up">
             <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
             <p className="text-gray-300 leading-relaxed">
-              I am an Electronics and Communication Engineering student at VNRVJIET with a passion for AI, 
-              full-stack development, and embedded systems. I have worked on deepfake detection, drone-based sensing, 
-              and AI-driven monitoring systems. I love solving real-world problems using a blend of software and 
-              hardware technologies.
+              As a passionate full-stack developer and AI/ML enthusiast, I specialize in creating innovative solutions 
+              that bridge the gap between cutting-edge technology and real-world applications. My expertise spans 
+              across modern web development frameworks, machine learning algorithms, and embedded systems. I've 
+              successfully led research projects in deepfake detection and developed AI-driven monitoring systems, 
+              demonstrating my ability to tackle complex technical challenges while maintaining a focus on practical implementation.
             </p>
 
             {/* Achievements with Staggered Animation */}
