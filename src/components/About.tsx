@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import profileImg from "./src/assets/profile.jpg";
+import profileImg from "karthikdk2004/techstyle-portfolio/src/assets/profile.jpg";
 import { FaAward, FaBook, FaRunning } from "react-icons/fa";
 
 const About = () => {
