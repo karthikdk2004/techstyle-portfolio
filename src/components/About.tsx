@@ -1,12 +1,11 @@
+
 import { Book, Award, UserCircle2 } from "lucide-react";
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
-import { motion } from "framer-motion";
-import ParticleBackground from "@/components/ParticleBackground"; // ✅ Import Particle Effect
 
 const About = () => {
-  const parallaxRef = useRef(null);
-  const tiltRef = useRef(null);
+  const parallaxRef = useRef<HTMLDivElement>(null);
+  const tiltRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,6 +16,7 @@ const About = () => {
       }
     };
 
+    // Initialize vanilla-tilt
     if (tiltRef.current) {
       VanillaTilt.init(tiltRef.current, {
         max: 15,
@@ -31,40 +31,29 @@ const About = () => {
     return () => {
       window.removeEventListener("scroll", handleScroll);
       if (tiltRef.current) {
-        tiltRef.current.vanillaTilt?.destroy();
+        // @ts-ignore - vanilla-tilt adds this property
+        tiltRef.current?.vanillaTilt?.destroy();
       }
     };
   }, []);
 
   return (
-    <section id="about" className="relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
-      {/* ✅ Particle Background */}
-      <div className="absolute inset-0 -z-10">
-        <ParticleBackground />
-      </div>
-
-      <div className="container mx-auto px-6 relative z-10">
+    <section id="about" className="py-20 bg-secondary overflow-hidden">
+      <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          
-          {/* Profile Image with Parallax & Tilt Effect */}
-          <motion.div 
-            initial={{ opacity: 0, x: -50 }} 
-            animate={{ opacity: 1, x: 0 }} 
-            transition={{ duration: 0.8 }}
-            className="lg:w-1/3 relative"
-          >
+          {/* Profile Image with Parallax, Glassmorphism, and 3D Tilt */}
+          <div className="lg:w-1/3">
             <div ref={parallaxRef} className="relative transition-transform duration-300 ease-out perspective">
               <div 
                 ref={tiltRef}
-                className="w-64 h-64 rounded-full overflow-hidden transform-gpu shadow-xl border border-primary/40 bg-black/20"
+                className="w-64 h-64 rounded-full overflow-hidden hover-glow transform-gpu"
               >
                 <div className="relative w-full h-full group transition-all duration-300">
-                  
-                  {/* Glassmorphism Overlay */}
-                  <div className="absolute inset-0 bg-white/10 backdrop-blur-lg rounded-full 
+                  {/* Glassmorphism overlay */}
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full 
                                 group-hover:bg-white/20 transition-all duration-300"></div>
                   
-                  {/* Profile Image */}
+                  {/* Profile image */}
                   <img
                     src="/placeholder.svg"
                     alt="D. Karthik Reddy"
@@ -72,66 +61,46 @@ const About = () => {
                              group-hover:scale-110 z-10 relative"
                   />
                   
-                  {/* Glowing Border Effect */}
+                  {/* Glowing border effect */}
                   <div className="absolute inset-0 rounded-full border-2 border-primary/30 
                                 group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(255,87,34,0.3)] 
                                 transition-all duration-300"></div>
                 </div>
               </div>
             </div>
-          </motion.div>
+          </div>
 
-          {/* Content Section with Effects */}
-          <motion.div 
-            initial={{ opacity: 0, y: 50 }} 
-            animate={{ opacity: 1, y: 0 }} 
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="lg:w-2/3 space-y-6 relative z-10 text-white text-opacity-90"
-          >
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-primary glow">
-              About Me
-            </h2>
-            <p className="leading-relaxed text-gray-300 text-lg">
-              Hello! I'm <strong className="text-primary">Karthik</strong>, a passionate <strong className="text-primary">full-stack developer</strong> 
-              currently pursuing a <strong>B.Tech in Electronics and Communication Engineering</strong> 
-              at <strong>VNRVJIET</strong>. My focus is on building impactful web applications and 
-              integrating AI-driven solutions into software systems.
+          {/* Content with Slide-up Animation */}
+          <div className="lg:w-2/3 space-y-6 slide-up">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
+            <p className="text-gray-300 leading-relaxed">
+              I am an Electronics and Communication Engineering student at VNRVJIET with a passion for AI, 
+              full-stack development, and embedded systems. I have worked on deepfake detection, drone-based sensing, 
+              and AI-driven monitoring systems. I love solving real-world problems using a blend of software and 
+              hardware technologies.
             </p>
 
-            {/* Achievements Section */}
+            {/* Achievements with Staggered Animation */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              {[
-                { 
-                  icon: <Award size={32} className="text-primary" />, 
-                  title: "Achievements", 
-                  desc: "Winner of Smart India Hackathon 2023 (Ministry of Defence)" 
-                },
-                { 
-                  icon: <Book size={32} className="text-primary" />, 
-                  title: "Education", 
-                  desc: "B.Tech in Electronics and Communication (CGPA: 9.00/10.0)" 
-                },
-                { 
-                  icon: <UserCircle2 size={32} className="text-primary" />, 
-                  title: "Interests", 
-                  desc: "Cricket, Badminton & Cycling enthusiast" 
-                }
-              ].map((item, index) => (
-                <motion.div 
-                  key={index}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                  className="glass p-6 rounded-xl space-y-3 transform hover:scale-105 transition-all duration-300 
-                            bg-white/10 backdrop-blur-md border border-white/20 shadow-lg"
-                >
-                  {item.icon}
-                  <h3 className="font-heading font-semibold text-lg">{item.title}</h3>
-                  <p className="text-sm text-gray-300">{item.desc}</p>
-                </motion.div>
-              ))}
+              <div className="glass p-6 rounded-xl space-y-3 transform hover:scale-105 transition-all duration-300 card-3d">
+                <Award className="text-primary animate-float" size={24} />
+                <h3 className="font-heading font-semibold">Achievements</h3>
+                <p className="text-sm text-gray-400">Winner of Smart India Hackathon 2023 (Ministry of Defence)</p>
+              </div>
+
+              <div className="glass p-6 rounded-xl space-y-3 transform hover:scale-105 transition-all duration-300 card-3d">
+                <Book className="text-primary animate-float" size={24} />
+                <h3 className="font-heading font-semibold">Education</h3>
+                <p className="text-sm text-gray-400">B.Tech in Electronics and Communication (CGPA: 9.00/10.0)</p>
+              </div>
+
+              <div className="glass p-6 rounded-xl space-y-3 transform hover:scale-105 transition-all duration-300 card-3d">
+                <UserCircle2 className="text-primary animate-float" size={24} />
+                <h3 className="font-heading font-semibold">Interests</h3>
+                <p className="text-sm text-gray-400">Cricket, Badminton & Cycling enthusiast</p>
+              </div>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
