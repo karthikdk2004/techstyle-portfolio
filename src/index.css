@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -92,21 +93,6 @@
     transform: translateY(calc(var(--scroll-offset, 0) * 2));
     transition: transform 0.1s linear;
   }
-
-  .left-timeline {
-    @apply ml-auto w-1/2 pl-12;
-  }
-
-  .right-timeline {
-    @apply w-1/2 pr-12;
-  }
-
-  @media (max-width: 768px) {
-    .left-timeline,
-    .right-timeline {
-      @apply w-full pl-12 pr-4;
-    }
-  }
 }
 
 @keyframes float {
@@ -148,17 +134,17 @@
   animation: blink 0.7s infinite;
 }
 
-/* Add smooth parallax scroll behavior */
+// Add smooth parallax scroll behavior
 .smooth-scroll {
   @apply transition-all duration-300 ease-out;
 }
 
-/* Add perspective to 3D transforms */
+// Add perspective to 3D transforms
 .perspective {
   perspective: 1000px;
 }
 
-/* Add depth to cards */
+// Add depth to cards
 .card-3d {
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
