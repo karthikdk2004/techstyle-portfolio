@@ -2,6 +2,7 @@ import { Book, Award, UserCircle2 } from "lucide-react";
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 import { motion } from "framer-motion";
+import ParticleBackground from "@/components/ParticleBackground"; // ✅ Import Particle Effect
 
 const About = () => {
   const parallaxRef = useRef(null);
@@ -36,8 +37,13 @@ const About = () => {
   }, []);
 
   return (
-    <section id="about" className="py-20 bg-gradient-to-b from-black via-gray-900 to-black overflow-hidden relative">
-      <div className="container mx-auto px-6">
+    <section id="about" className="relative w-full min-h-screen overflow-hidden bg-gradient-to-b from-black via-gray-900 to-black">
+      {/* ✅ Particle Background */}
+      <div className="absolute inset-0 -z-10">
+        <ParticleBackground />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="flex flex-col lg:flex-row items-center gap-12">
           
           {/* Profile Image with Parallax & Tilt Effect */}
@@ -128,9 +134,6 @@ const About = () => {
           </motion.div>
         </div>
       </div>
-
-      {/* Background Effect */}
-      <div className="absolute inset-0 bg-black opacity-20 z-0"></div>
     </section>
   );
 };
