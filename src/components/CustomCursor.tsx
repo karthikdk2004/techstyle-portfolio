@@ -24,12 +24,22 @@ const CustomCursor = () => {
       }
     };
 
+    // Add global cursor style
+    const styleElement = document.createElement('style');
+    styleElement.textContent = `
+      body {
+        cursor: none !important;
+      }
+    `;
+    document.head.appendChild(styleElement);
+
     window.addEventListener('mousemove', mouseMove);
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
+      document.head.removeChild(styleElement);
     };
   }, []);
 
@@ -53,19 +63,12 @@ const CustomCursor = () => {
   };
 
   return (
-    <>
-      <motion.div
-        className="cursor-dot fixed top-0 left-0 pointer-events-none z-50 rounded-full"
-        variants={variants}
-        animate={cursorVariant}
-        transition={{ type: "spring", stiffness: 500, damping: 28 }}
-      />
-      <style jsx global>{`
-        body {
-          cursor: none;
-        }
-      `}</style>
-    </>
+    <motion.div
+      className="cursor-dot fixed top-0 left-0 pointer-events-none z-50 rounded-full"
+      variants={variants}
+      animate={cursorVariant}
+      transition={{ type: "spring", stiffness: 500, damping: 28 }}
+    />
   );
 };
 
