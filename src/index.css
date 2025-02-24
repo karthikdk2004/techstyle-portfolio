@@ -167,10 +167,3 @@
 .card-3d:hover {
   transform: translateZ(20px);
 }
-
-* {
-  cursor: auto !important;
-}
-
-
-
