@@ -1,4 +1,3 @@
-
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
@@ -24,22 +23,12 @@ const CustomCursor = () => {
       }
     };
 
-    // Add global cursor style
-    const styleElement = document.createElement('style');
-    styleElement.textContent = `
-      body {
-        cursor: none !important;
-      }
-    `;
-    document.head.appendChild(styleElement);
-
     window.addEventListener('mousemove', mouseMove);
     window.addEventListener('mouseover', handleMouseOver);
 
     return () => {
       window.removeEventListener('mousemove', mouseMove);
       window.removeEventListener('mouseover', handleMouseOver);
-      document.head.removeChild(styleElement);
     };
   }, []);
 
@@ -49,16 +38,16 @@ const CustomCursor = () => {
       y: mousePosition.y - 8,
       height: 16,
       width: 16,
-      backgroundColor: "rgba(255, 87, 34, 0.5)",
-      mixBlendMode: "difference" as const
+      backgroundColor: "transparent",  // Restored default cursor effect
+      mixBlendMode: "normal"  // Prevents visual glitches
     },
     hover: {
       x: mousePosition.x - 16,
       y: mousePosition.y - 16,
       height: 32,
       width: 32,
-      backgroundColor: "rgba(255, 87, 34, 0.3)",
-      mixBlendMode: "difference" as const
+      backgroundColor: "rgba(255, 87, 34, 0.3)",  // Light hover effect
+      mixBlendMode: "normal"
     }
   };
 
