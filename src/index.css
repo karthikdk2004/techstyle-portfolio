@@ -5,13 +5,13 @@
 
 @layer base {
   :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --border: 0 0% 20%;
-    --input: 0 0% 20%;
-    --ring: 20 96% 54%;
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --background: 0 0\% 0\%;
+    --foreground: 0 0\% 100\%;
+    --border: 0 0\% 20\%;
+    --input: 0 0\% 20\%;
+    --ring: 20 96\% 54\%;
+    --destructive: 0 84\% 60\%;
+    --destructive-foreground: 0 0\% 100\%;
   }
 
   * {
@@ -134,17 +134,17 @@
   animation: blink 0.7s infinite;
 }
 
-// Add smooth parallax scroll behavior
+/* Add smooth parallax scroll behavior */
 .smooth-scroll {
   @apply transition-all duration-300 ease-out;
 }
 
-// Add perspective to 3D transforms
+/* Add perspective to 3D transforms */
 .perspective {
   perspective: 1000px;
 }
 
-// Add depth to cards
+/* Add depth to cards */
 .card-3d {
   transform-style: preserve-3d;
   transition: transform 0.3s ease;
