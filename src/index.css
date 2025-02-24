@@ -35,8 +35,9 @@
   }
 
   .glass-card {
-    @apply glass hover:bg-white/5 transition-colors duration-300;
-  }
+    @apply bg-white/5 backdrop-blur-md border border-white/10 rounded-lg transition-colors duration-300;
+}
+
 
   .neon-border {
     @apply border border-primary/50;
