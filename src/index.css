@@ -4,13 +4,13 @@
 
 @layer base {
   :root {
-    --background: 0 0\% 0\%;
-    --foreground: 0 0\% 100\%;
-    --border: 0 0\% 20\%;
-    --input: 0 0\% 20\%;
-    --ring: 20 96\% 54\%;
-    --destructive: 0 84\% 60\%;
-    --destructive-foreground: 0 0\% 100\%;
+    --background: 0 0% 0%;
+    --foreground: 0 0% 100%;
+    --border: 0 0% 20%;
+    --input: 0 0% 20%;
+    --ring: 20 96% 54%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
   }
 
   * {
