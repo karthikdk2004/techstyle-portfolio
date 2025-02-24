@@ -1,9 +1,11 @@
 
 import { Book, Award, UserCircle2 } from "lucide-react";
 import { useEffect, useRef } from "react";
+import VanillaTilt from "vanilla-tilt";
 
 const About = () => {
   const parallaxRef = useRef<HTMLDivElement>(null);
+  const tiltRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,25 +16,57 @@ const About = () => {
       }
     };
 
+    // Initialize vanilla-tilt
+    if (tiltRef.current) {
+      VanillaTilt.init(tiltRef.current, {
+        max: 15,
+        speed: 400,
+        glare: true,
+        "max-glare": 0.5,
+        scale: 1.1
+      });
+    }
+
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (tiltRef.current) {
+        // @ts-ignore - vanilla-tilt adds this property
+        tiltRef.current?.vanillaTilt?.destroy();
+      }
+    };
   }, []);
 
   return (
     <section id="about" className="py-20 bg-secondary overflow-hidden">
       <div className="container mx-auto px-6">
         <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Profile Image with Parallax */}
+          {/* Profile Image with Parallax, Glassmorphism, and 3D Tilt */}
           <div className="lg:w-1/3">
-            <div ref={parallaxRef} className="relative transition-transform duration-300 ease-out">
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 hover-glow">
-                <img
-                  src="/placeholder.svg"
-                  alt="D. Karthik Reddy"
-                  className="w-full h-full object-cover transform hover:scale-110 transition-transform duration-500"
-                />
+            <div ref={parallaxRef} className="relative transition-transform duration-300 ease-out perspective">
+              <div 
+                ref={tiltRef}
+                className="w-64 h-64 rounded-full overflow-hidden hover-glow transform-gpu"
+              >
+                <div className="relative w-full h-full group transition-all duration-300">
+                  {/* Glassmorphism overlay */}
+                  <div className="absolute inset-0 bg-white/10 backdrop-blur-sm rounded-full 
+                                group-hover:bg-white/20 transition-all duration-300"></div>
+                  
+                  {/* Profile image */}
+                  <img
+                    src="/placeholder.svg"
+                    alt="D. Karthik Reddy"
+                    className="w-full h-full object-cover transform transition-all duration-500 
+                             group-hover:scale-110 z-10 relative"
+                  />
+                  
+                  {/* Glowing border effect */}
+                  <div className="absolute inset-0 rounded-full border-2 border-primary/30 
+                                group-hover:border-primary/50 group-hover:shadow-[0_0_30px_rgba(255,87,34,0.3)] 
+                                transition-all duration-300"></div>
+                </div>
               </div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
             </div>
           </div>
 
