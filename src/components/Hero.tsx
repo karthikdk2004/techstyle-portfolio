@@ -1,11 +1,30 @@
 
 import { ArrowDown } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Typewriter from "typewriter-effect";
 import { tsParticles } from "tsparticles-engine";
 import { loadSlim } from "tsparticles-slim";
 
 const Hero = () => {
+  const [greeting, setGreeting] = useState("");
+
+  useEffect(() => {
+    const getGreeting = () => {
+      const hour = new Date().getHours();
+      if (hour >= 5 && hour < 12) {
+        return "Good Morning! Welcome to my portfolio ☀️";
+      } else if (hour >= 12 && hour < 17) {
+        return "Good Afternoon! Welcome to my portfolio 🌅";
+      } else if (hour >= 17 && hour < 22) {
+        return "Good Evening! Let's build something amazing 🌙";
+      } else {
+        return "Hello! Thanks for visiting my portfolio ✨";
+      }
+    };
+
+    setGreeting(getGreeting());
+  }, []);
+
   useEffect(() => {
     const initParticles = async () => {
       await loadSlim(tsParticles);
@@ -71,6 +90,9 @@ const Hero = () => {
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white">
             D. Karthik Reddy
           </h1>
+
+          {/* Time-based Greeting */}
+          <p className="text-xl text-white/90 animate-fade-up">{greeting}</p>
           
           <div className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto h-20">
             <Typewriter

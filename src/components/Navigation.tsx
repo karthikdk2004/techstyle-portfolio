@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Code2 } from "lucide-react";
-import { ThemeToggle } from "./ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,9 +41,6 @@ const Navigation = () => {
           </a>
 
           <div className="flex items-center gap-4">
-            {/* Theme Toggle */}
-            <ThemeToggle />
-            
             {/* Mobile menu button */}
             <button
               className="lg:hidden text-white hover:text-primary transition-colors"
