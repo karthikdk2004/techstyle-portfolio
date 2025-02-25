@@ -1,6 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Menu, X, Code2 } from "lucide-react";
+import { ThemeToggle } from "./ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -39,26 +40,31 @@ const Navigation = () => {
               KARTHIK
             </span>
           </a>
-          
-          {/* Mobile menu button */}
-          <button
-            className="lg:hidden text-white hover:text-primary transition-colors"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-white hover:text-primary transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
+          <div className="flex items-center gap-4">
+            {/* Theme Toggle */}
+            <ThemeToggle />
+            
+            {/* Mobile menu button */}
+            <button
+              className="lg:hidden text-white hover:text-primary transition-colors"
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+
+            {/* Desktop Navigation */}
+            <div className="hidden lg:flex space-x-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="text-white hover:text-primary transition-colors"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 

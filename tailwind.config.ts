@@ -55,23 +55,13 @@ export default {
         },
       },
       keyframes: {
-        "fade-up": {
-          "0%": { transform: "translateY(20px)", opacity: "0" },
-          "100%": { transform: "translateY(0)", opacity: "1" },
-        },
-        "fade-in": {
-          "0%": { opacity: "0" },
-          "100%": { opacity: "1" },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0)" },
-          "50%": { transform: "translateY(-10px)" },
+        "theme-switch": {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
       },
       animation: {
-        "fade-up": "fade-up 0.5s ease-out",
-        "fade-in": "fade-in 0.3s ease-out",
-        float: "float 3s ease-in-out infinite",
+        "theme-switch": "theme-switch 0.5s ease-in-out",
       },
     },
   },
