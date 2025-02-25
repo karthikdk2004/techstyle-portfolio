@@ -1,5 +1,6 @@
 
 import { Book, Award, UserCircle2 } from "lucide-react";
+import ResumeModal from "./ResumeModal";
 
 const About = () => {
   return (
@@ -22,7 +23,11 @@ const About = () => {
 
           {/* Content */}
           <div className="lg:w-2/3 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
+            <div className="flex justify-between items-start">
+              <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
+              <ResumeModal />
+            </div>
+            
             <p className="text-gray-300 leading-relaxed">
               I am an Electronics and Communication Engineering student at VNRVJIET with a passion for AI, 
               full-stack development, and embedded systems. I have worked on deepfake detection, drone-based sensing, 
