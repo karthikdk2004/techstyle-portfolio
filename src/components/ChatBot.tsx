@@ -19,7 +19,7 @@ const ChatBot = () => {
   const sendMessage = async (message: string) => {
     try {
       const response = await fetch(
-        "https://your-project.supabase.co/functions/v1/chat-with-portfolio",
+        "https://eqfqdeuhwbyrrzocliqj.supabase.co/functions/v1/chat-with-portfolio",
         {
           method: "POST",
           headers: {
