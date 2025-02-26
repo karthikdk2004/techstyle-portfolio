@@ -1,4 +1,3 @@
-
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -79,7 +78,7 @@ const WhyHireMe = () => {
         </div>
 
         {/* Core Strengths */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {strengths.map((strength, index) => (
             <motion.div
               key={index}
@@ -97,23 +96,6 @@ const WhyHireMe = () => {
             </motion.div>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="glass rounded-xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-heading font-bold mb-4">Ready to Work Together?</h3>
-            <p className="text-gray-400 mb-6">
-              Let's discuss how I can contribute to your team's success.
-            </p>
-            <ResumeModal />
-          </div>
-        </motion.div>
       </div>
     </section>
   );

@@ -1,6 +1,6 @@
 
 import { Book, Award, UserCircle2 } from "lucide-react";
-import ResumeModal from "./ResumeModal";
+import ResumeButton from "./ResumeButton";
 
 const About = () => {
   return (
@@ -25,7 +25,11 @@ const About = () => {
           <div className="lg:w-2/3 space-y-6">
             <div className="flex justify-between items-start">
               <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
-              <ResumeModal />
+              <ResumeButton
+                variant="outline"
+                text="Get My Full Resume"
+                className="glass-card"
+              />
             </div>
             
             <p className="text-gray-300 leading-relaxed">

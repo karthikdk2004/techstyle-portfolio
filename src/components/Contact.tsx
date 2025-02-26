@@ -4,6 +4,7 @@ import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
+import ResumeButton from "./ResumeButton";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -56,12 +57,57 @@ const Contact = () => {
           <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
             Let's build something amazing together!
           </h2>
-          <p className="text-gray-400 max-w-2xl mx-auto">
+          <p className="text-gray-400 max-w-2xl mx-auto mb-8">
             I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions.
           </p>
+          <ResumeButton 
+            text="Want a detailed look? Download my resume!"
+            className="neon-border hover:shadow-xl hover:shadow-primary/20"
+          />
         </div>
 
         <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Contact Information */}
+          <div className="space-y-8">
+            <div className="glass rounded-xl p-8">
+              <h3 className="font-heading font-semibold text-xl mb-6">Contact Information</h3>
+              <div className="space-y-4">
+                <a
+                  href="mailto:karthikreddy1420@gmail.com"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
+                >
+                  <Mail size={20} />
+                  karthikreddy1420@gmail.com
+                </a>
+                <a
+                  href="tel:+919618626228"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
+                >
+                  <Phone size={20} />
+                  +91-9618626228
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/karthik-reddy-devi-reddy-ab6927260/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
+                >
+                  <Linkedin size={20} />
+                  LinkedIn Profile
+                </a>
+                <a
+                  href="https://www.instagram.com/karthikreddy__2004/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
+                >
+                  <Instagram size={20} />
+                  Instagram Profile
+                </a>
+              </div>
+            </div>
+          </div>
+
           {/* Contact Form */}
           <div className="glass rounded-xl p-8">
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -115,47 +161,6 @@ const Contact = () => {
                 {isLoading ? "Sending..." : "Send Message"}
               </button>
             </form>
-          </div>
-
-          {/* Contact Information */}
-          <div className="space-y-8">
-            <div className="glass rounded-xl p-8">
-              <h3 className="font-heading font-semibold text-xl mb-6">Contact Information</h3>
-              <div className="space-y-4">
-                <a
-                  href="mailto:karthikreddy1420@gmail.com"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
-                >
-                  <Mail size={20} />
-                  karthikreddy1420@gmail.com
-                </a>
-                <a
-                  href="tel:+919618626228"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
-                >
-                  <Phone size={20} />
-                  +91-9618626228
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/karthik-reddy-devi-reddy-ab6927260/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
-                >
-                  <Linkedin size={20} />
-                  LinkedIn Profile
-                </a>
-                <a
-                  href="https://www.instagram.com/karthikreddy__2004/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
-                >
-                  <Instagram size={20} />
-                  Instagram Profile
-                </a>
-              </div>
-            </div>
           </div>
         </div>
       </div>
