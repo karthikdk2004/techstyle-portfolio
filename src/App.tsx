@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BugChallenge from "./pages/BugChallenge";
+import WhyHireMe from "./pages/WhyHireMe";
 import DeveloperMode from "./components/DeveloperMode";
 import ChatBot from "./components/ChatBot";
 
@@ -19,6 +20,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/bug-challenge" element={<BugChallenge />} />
+          <Route path="/why-hire-me" element={<WhyHireMe />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
         <DeveloperMode />
