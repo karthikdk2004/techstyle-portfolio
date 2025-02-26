@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import BugChallenge from "./pages/BugChallenge";
 import DeveloperMode from "./components/DeveloperMode";
-import VisitorCounter from "./components/VisitorCounter";
 import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
@@ -24,9 +23,6 @@ const App = () => (
         </Routes>
         <DeveloperMode />
         <ChatBot />
-        <div className="fixed bottom-4 left-4 z-50">
-          <VisitorCounter />
-        </div>
         <Toaster />
         <Sonner />
       </TooltipProvider>

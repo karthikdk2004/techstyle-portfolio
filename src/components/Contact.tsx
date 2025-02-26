@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Phone } from "lucide-react";
+import { Mail, Linkedin, Github, Phone, Instagram } from "lucide-react";
 import { useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
@@ -137,18 +137,22 @@ const Contact = () => {
                   +91-9618626228
                 </a>
                 <a
-                  href="#"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
+                  href="https://www.linkedin.com/in/karthik-reddy-devi-reddy-ab6927260/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
                 >
                   <Linkedin size={20} />
                   LinkedIn Profile
                 </a>
                 <a
-                  href="#"
-                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors"
+                  href="https://www.instagram.com/karthikreddy__2004/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-4 text-gray-300 hover:text-primary transition-colors hover-glow"
                 >
-                  <Github size={20} />
-                  GitHub Profile
+                  <Instagram size={20} />
+                  Instagram Profile
                 </a>
               </div>
             </div>

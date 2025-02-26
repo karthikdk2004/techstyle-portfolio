@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { MessageCircle, X, Send } from "lucide-react";
 import { toast } from "sonner";
@@ -15,6 +15,21 @@ const ChatBot = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+
+  // Load previous conversation from localStorage
+  useEffect(() => {
+    const savedMessages = localStorage.getItem("chatMessages");
+    if (savedMessages) {
+      setMessages(JSON.parse(savedMessages));
+    }
+  }, []);
+
+  // Save conversation to localStorage
+  useEffect(() => {
+    if (messages.length > 0) {
+      localStorage.setItem("chatMessages", JSON.stringify(messages));
+    }
+  }, [messages]);
 
   const sendMessage = async (message: string) => {
     try {
@@ -62,16 +77,16 @@ const ChatBot = () => {
     <>
       <Button
         onClick={() => setIsOpen(true)}
-        className="fixed bottom-20 right-4 h-12 w-12 rounded-full shadow-lg hover-glow"
+        className="fixed bottom-8 right-8 h-12 w-12 rounded-full shadow-lg hover-glow z-50 transition-transform duration-300 hover:scale-110"
         size="icon"
       >
         <MessageCircle className="h-6 w-6" />
       </Button>
 
       {isOpen && (
-        <div className="fixed bottom-20 right-4 w-96 h-[500px] glass-card rounded-lg shadow-xl z-50 flex flex-col">
+        <div className="fixed bottom-24 right-8 w-96 h-[500px] glass-card rounded-lg shadow-xl z-50 flex flex-col animate-in fade-in slide-in-from-bottom-5 duration-300">
           <div className="flex items-center justify-between p-4 border-b border-white/10">
-            <h3 className="font-heading font-semibold">Portfolio Assistant</h3>
+            <h3 className="font-heading font-semibold">Chat with Me</h3>
             <Button
               variant="ghost"
               size="icon"
