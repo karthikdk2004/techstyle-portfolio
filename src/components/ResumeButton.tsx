@@ -18,7 +18,7 @@ const ResumeButton = ({
 }: ResumeButtonProps) => {
   const handleDownload = () => {
     // In a real implementation, this would be a link to your actual resume PDF
-    const resumeUrl = "/resume.pdf";
+    const resumeUrl = "/Karthik_Reddy_Resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "KarthikReddy_Resume.pdf";
