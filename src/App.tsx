@@ -9,7 +9,6 @@ import NotFound from "./pages/NotFound";
 import BugChallenge from "./pages/BugChallenge";
 import WhyHireMe from "./pages/WhyHireMe";
 import DeveloperMode from "./components/DeveloperMode";
-import ChatBot from "./components/ChatBot";
 
 const queryClient = new QueryClient();
 
@@ -24,7 +23,6 @@ const App = () => (
           <Route path="*" element={<NotFound />} />
         </Routes>
         <DeveloperMode />
-        <ChatBot />
         <Toaster />
         <Sonner />
       </TooltipProvider>
