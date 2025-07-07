@@ -7,7 +7,7 @@ import { toast } from "sonner";
 const ResumeModal = () => {
   const handleDownload = () => {
     // In a real implementation, this would be a link to your actual resume PDF
-    const resumeUrl = "public/Resume.pdf";
+    const resumeUrl = "vscode-vfs://github%2B7b2276223a312c22726566223a7b2274797065223a362c226964223a226d61696e227d7d/karthikdk2004/techstyle-portfolio/public/Resume.pdf";
     const link = document.createElement("a");
     link.href = resumeUrl;
     link.download = "KarthikReddy_Resume.pdf";
