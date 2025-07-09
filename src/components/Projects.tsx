@@ -1,5 +1,4 @@
 
-import { Github, ExternalLink } from "lucide-react";
 import { useEffect, useRef } from "react";
 import VanillaTilt from "vanilla-tilt";
 
@@ -9,22 +8,16 @@ const Projects = () => {
       title: "Deepfake Detection Using SqueezeNet",
       description: "Built a deepfake detection model with 98.21% accuracy using PyTorch.",
       techStack: ["AI/ML", "Computer Vision", "Deep Learning"],
-      demoUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "Drone-Based Magnetic Sensing System",
       description: "Engineered an AI-powered drone-based anomaly detection system with a 40% accuracy improvement.",
       techStack: ["Embedded Systems", "IoT", "LoRa"],
-      demoUrl: "#",
-      githubUrl: "#",
     },
     {
       title: "AI-based Acoustic Wave Monitoring System",
       description: "Developed an AI-driven railway defect detection system achieving 90% accuracy using signal processing techniques.",
       techStack: ["AI/ML", "Signal Processing"],
-      demoUrl: "#",
-      githubUrl: "#",
     },
   ];
 
@@ -86,22 +79,6 @@ const Projects = () => {
                       {tech}
                     </span>
                   ))}
-                </div>
-                <div className="flex gap-4 mt-6">
-                  <a
-                    href={project.demoUrl}
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"
-                  >
-                    <ExternalLink size={16} />
-                    Live Demo
-                  </a>
-                  <a
-                    href={project.githubUrl}
-                    className="flex items-center gap-2 text-sm text-gray-400 hover:text-primary transition-colors"
-                  >
-                    <Github size={16} />
-                    GitHub
-                  </a>
                 </div>
               </div>
             </div>
