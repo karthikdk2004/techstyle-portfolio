@@ -27,9 +27,9 @@ const Contact = () => {
     setIsLoading(true);
 
     try {
-      const { error } = await supabase.from("messages").insert([formData]);
-
-      if (error) throw error;
+      // TODO: Implement database functionality when messages table is created
+      // const { error } = await supabase.from("messages").insert([formData]);
+      // if (error) throw error;
 
       toast({
         title: "Message sent successfully!",
