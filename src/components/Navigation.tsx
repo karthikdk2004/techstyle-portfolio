@@ -25,13 +25,14 @@ const Navigation = () => {
     { href: "#contact", label: "Contact", isRoute: false },
   ];
 
-  const handleNavClick = (link: typeof navLinks[0]) => {
+  const handleNavClick = (link: typeof navLinks[0], e: React.MouseEvent) => {
     if (link.isRoute) {
       return; // Let React Router handle it
     }
     
     // For anchor links, navigate to home first if not already there
     if (location.pathname !== "/") {
+      e.preventDefault();
       window.location.href = "/" + link.href;
     }
   };
@@ -79,7 +80,7 @@ const Navigation = () => {
                     key={link.href}
                     href={link.href}
                     className="text-white hover:text-primary transition-colors"
-                    onClick={() => handleNavClick(link)}
+                    onClick={(e) => handleNavClick(link, e)}
                   >
                     {link.label}
                   </a>
@@ -108,9 +109,9 @@ const Navigation = () => {
                     key={link.href}
                     href={link.href}
                     className="text-white hover:text-primary transition-colors"
-                    onClick={() => {
+                    onClick={(e) => {
                       setIsMenuOpen(false);
-                      handleNavClick(link);
+                      handleNavClick(link, e);
                     }}
                   >
                     {link.label}
