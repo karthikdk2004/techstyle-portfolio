@@ -5,19 +5,39 @@ import VanillaTilt from "vanilla-tilt";
 const Projects = () => {
   const projects = [
     {
-      title: "Deepfake Detection Using SqueezeNet",
-      description: "Built a deepfake detection model with 98.21% accuracy using PyTorch.",
-      techStack: ["AI/ML", "Computer Vision", "Deep Learning"],
+      title: "Portfolio Website",
+      description: "Built and deployed personal website to showcase resume and technical portfolio with responsive design using custom CSS, hosted on Vercel.",
+      techStack: ["HTML", "CSS", "JavaScript", "Vercel"],
+      year: "2025",
+      type: "Frontend Project"
     },
     {
-      title: "Drone-Based Magnetic Sensing System",
-      description: "Engineered an AI-powered drone-based anomaly detection system with a 40% accuracy improvement.",
-      techStack: ["Embedded Systems", "IoT", "LoRa"],
+      title: "Travel Expense Tracker Web App - \"Wayfare Wallet\"",
+      description: "Designed an interactive web application for logging, categorizing, and tracking expenses with dynamic DOM updates and form validation.",
+      techStack: ["HTML", "CSS", "JavaScript"],
+      year: "2025",
+      type: "Frontend Project"
     },
     {
-      title: "AI-based Acoustic Wave Monitoring System",
-      description: "Developed an AI-driven railway defect detection system achieving 90% accuracy using signal processing techniques.",
-      techStack: ["AI/ML", "Signal Processing"],
+      title: "Gastrointestinal Disease Classification using Vision Transformers",
+      description: "Trained a MaxViT transformer model on KVASIR v2 to classify 8 GI tract conditions from endoscopic images. Achieved high accuracy using data augmentation.",
+      techStack: ["MaxViT", "Python", "Computer Vision", "AI/ML"],
+      year: "2025",
+      type: "Research Project"
+    },
+    {
+      title: "Smart India Hackathon - Magnetic Sensing Drone",
+      description: "Led UAV-based solution improving magnetic detection by 40%, with 95% accurate data logging. Reduced flight power usage by 25%, solved 7 system bugs during finals.",
+      techStack: ["Python", "Embedded Systems", "IoT", "UAV"],
+      year: "2023",
+      type: "Hackathon Winner"
+    },
+    {
+      title: "AI-Based Acoustic Monitoring System",
+      description: "Developed rail track monitoring using acoustic waves with 90% accuracy. Processed 500K+ samples in real-time via AI-based edge processing.",
+      techStack: ["Edge AI", "Embedded", "Signal Processing"],
+      year: "2025",
+      type: "Patent Published"
     },
   ];
 
@@ -64,9 +84,17 @@ const Projects = () => {
               className="glass rounded-xl overflow-hidden hover:bg-white/20 transition-all duration-300 group transform-gpu"
             >
               <div className="p-6 space-y-4">
-                <h3 className="font-heading font-semibold text-xl group-hover:text-primary transition-colors">
-                  {project.title}
-                </h3>
+                <div className="flex justify-between items-start mb-2">
+                  <h3 className="font-heading font-semibold text-xl group-hover:text-primary transition-colors flex-1">
+                    {project.title}
+                  </h3>
+                  <span className="text-xs text-gray-500 ml-2">{project.year}</span>
+                </div>
+                <div className="mb-3">
+                  <span className="text-xs px-2 py-1 bg-accent/20 text-accent rounded-full">
+                    {project.type}
+                  </span>
+                </div>
                 <p className="text-gray-400 text-sm">
                   {project.description}
                 </p>
