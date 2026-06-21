@@ -18,8 +18,8 @@ const ResumeButton = ({
 }: ResumeButtonProps) => {
   const handleDownload = () => {
     const link = document.createElement("a");
-    link.href = "/Resume.pdf";
-    link.download = "Karthik_Reddy_Resume.pdf";
+    link.href = "/D_Karthik_Reddy_Resume.pdf";
+    link.download = "D_Karthik_Reddy_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
