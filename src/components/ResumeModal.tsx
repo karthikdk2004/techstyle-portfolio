@@ -1,5 +1,5 @@
 
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Download, BookOpen } from "lucide-react";
 import { toast } from "sonner";
@@ -23,12 +23,25 @@ const ResumeModal = () => {
           View Resume
         </Button>
       </DialogTrigger>
-      <DialogContent className="max-w-3xl bg-background/95 backdrop-blur">
-        <DialogHeader>
-          <DialogTitle className="text-2xl font-heading">D. Karthik Reddy — Resume</DialogTitle>
-        </DialogHeader>
 
-        <div className="mt-6 space-y-8">
+      {/*
+        Override shadcn defaults:
+        - p-0 replaces p-6 (we handle padding per-zone)
+        - flex flex-col replaces grid (needed for sticky header/footer + scrollable body)
+        - max-h-[90vh] caps height so body can scroll instead of clipping
+      */}
+      <DialogContent className="max-w-3xl bg-background/95 backdrop-blur p-0 flex flex-col max-h-[90vh]">
+
+        {/* Sticky header — never scrolls away */}
+        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-white/8 shrink-0">
+          <DialogTitle className="text-2xl font-heading">
+            D. Karthik Reddy — Resume
+          </DialogTitle>
+        </div>
+
+        {/* Scrollable body */}
+        <div className="flex-1 overflow-y-auto px-6 py-6 space-y-8">
+
           {/* Education */}
           <div className="relative pl-8 border-l-2 border-primary/30">
             <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
@@ -52,7 +65,7 @@ const ResumeModal = () => {
             <div className="mt-4 space-y-3">
               <div className="glass p-4 rounded-lg">
                 <h4 className="font-semibold">Smart India Hackathon 2023 — National Winner</h4>
-                <p className="text-sm text-gray-400">Ministry of Defence track · 1 M+ national participants</p>
+                <p className="text-sm text-gray-400">Ministry of Defence track · 1M+ national participants</p>
               </div>
               <div className="glass p-4 rounded-lg">
                 <h4 className="font-semibold">IEEE ICIIP 2025 — Lead Author</h4>
@@ -94,7 +107,8 @@ const ResumeModal = () => {
           </div>
         </div>
 
-        <div className="mt-6 flex justify-end">
+        {/* Sticky footer — download button stays pinned at bottom */}
+        <div className="px-6 pb-6 pt-4 border-t border-white/8 flex justify-end shrink-0">
           <Button onClick={handleDownload} className="neon-border">
             <Download className="mr-2 h-4 w-4" />
             Download PDF
