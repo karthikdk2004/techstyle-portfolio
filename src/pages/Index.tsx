@@ -1,4 +1,5 @@
 
+import { useEffect } from "react";
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -8,6 +9,20 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
 import { useScrollReveal } from "@/hooks/useScrollReveal";
+
+/* ─── Glowing section divider ─── */
+const SectionDivider = () => (
+  <div className="relative h-px w-full" aria-hidden="true">
+    <div
+      className="absolute inset-0"
+      style={{ background: "linear-gradient(90deg, transparent, rgba(129,140,248,0.3), transparent)" }}
+    />
+    <div
+      className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-1.5 h-1.5 rounded-full bg-primary/60"
+      style={{ boxShadow: "0 0 8px rgba(129,140,248,0.5)" }}
+    />
+  </div>
+);
 
 const STATS = [
   {
@@ -77,14 +92,28 @@ const Achievements = () => (
 const Index = () => {
   useScrollReveal();
 
+  /* Cursor spotlight — track mouse position as CSS custom properties */
+  useEffect(() => {
+    const handleMouseMove = (e: MouseEvent) => {
+      document.documentElement.style.setProperty("--cursor-x", `${e.clientX}px`);
+      document.documentElement.style.setProperty("--cursor-y", `${e.clientY}px`);
+    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
+  }, []);
+
   return (
     <main id="main-content" className="bg-black text-white min-h-screen">
       <Navigation />
       <Hero />
+      <SectionDivider />
       <About />
+      <SectionDivider />
       <Skills />
+      <SectionDivider />
       <Projects />
       <Achievements />
+      <SectionDivider />
       <Contact />
       <Footer />
       <Toaster />

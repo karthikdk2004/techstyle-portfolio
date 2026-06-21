@@ -68,8 +68,12 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-secondary">
-      <div className="container mx-auto px-6">
+    <section id="contact" className="py-24 bg-secondary relative overflow-hidden">
+      {/* Subtle aurora blobs for depth */}
+      <div className="aurora-blob aurora-blob-subtle absolute w-[400px] h-[400px] bg-violet-600 -top-20 -left-20" aria-hidden="true" style={{ animationDelay: '5s' }} />
+      <div className="aurora-blob aurora-blob-subtle absolute w-[300px] h-[300px] bg-indigo-400 bottom-0 -right-16" aria-hidden="true" style={{ animationDelay: '13s' }} />
+
+      <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-5 gap-12 lg:gap-20 items-start">
 
           {/* Left column — contact */}

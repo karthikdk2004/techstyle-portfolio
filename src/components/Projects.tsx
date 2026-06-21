@@ -1,6 +1,7 @@
 
-import { ExternalLink, Terminal } from "lucide-react";
-import { useState } from "react";
+import { ExternalLink, Terminal, Microscope, Radar, AudioLines } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import type { LucideIcon } from "lucide-react";
 
 interface Project {
   title: string;
@@ -132,57 +133,104 @@ const SECONDARY: Project[] = [
   },
 ];
 
-const TerminalPane = ({ lines, liveUrl }: { lines: string[]; liveUrl: string }) => (
-  <div className="flex flex-col h-full rounded-xl overflow-hidden border border-white/8 bg-[#060A14] font-mono text-[13px] leading-relaxed">
-    {/* Chrome bar */}
-    <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.03] border-b border-white/6 shrink-0">
-      <div className="flex gap-1.5" aria-hidden="true">
-        <span className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
-        <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
-        <span className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+/* Decorative icons for secondary cards — indexed to match SECONDARY order */
+const SECONDARY_ICONS: { Icon: LucideIcon; className: string }[] = [
+  { Icon: Microscope, className: "text-blue-400/30" },
+  { Icon: Radar,      className: "text-yellow-400/30" },
+  { Icon: AudioLines, className: "text-purple-400/30" },
+];
+
+/* ─── Stateful terminal pane with typewriter replay ─── */
+const TerminalPane = ({ lines, liveUrl }: { lines: string[]; liveUrl: string }) => {
+  const [visibleLines, setVisibleLines] = useState<string[]>(lines);
+  const [isReplaying, setIsReplaying]   = useState(false);
+  const timersRef = useRef<ReturnType<typeof setTimeout>[]>([]);
+
+  const startReplay = () => {
+    if (isReplaying) return;
+    /* Clear any in-flight timers from a previous replay */
+    timersRef.current.forEach(clearTimeout);
+    timersRef.current = [];
+
+    setIsReplaying(true);
+    setVisibleLines([]);
+
+    lines.forEach((line, i) => {
+      const t = setTimeout(() => {
+        setVisibleLines((prev) => [...prev, line]);
+        if (i === lines.length - 1) {
+          const end = setTimeout(() => setIsReplaying(false), 300);
+          timersRef.current.push(end);
+        }
+      }, i * 250);
+      timersRef.current.push(t);
+    });
+  };
+
+  /* Cleanup on unmount */
+  useEffect(() => () => timersRef.current.forEach(clearTimeout), []);
+
+  return (
+    <div className="flex flex-col h-full rounded-xl overflow-hidden border border-white/8 bg-[#060A14] font-mono text-[13px] leading-relaxed">
+      {/* Chrome bar */}
+      <div className="flex items-center gap-2 px-4 py-3 bg-white/[0.03] border-b border-white/6 shrink-0">
+        <div className="flex gap-1.5" aria-hidden="true">
+          <span className="w-2.5 h-2.5 rounded-full bg-red-500/40" />
+          <span className="w-2.5 h-2.5 rounded-full bg-yellow-500/40" />
+          <span className="w-2.5 h-2.5 rounded-full bg-green-500/40" />
+        </div>
+        <span className="ml-2 text-xs text-gray-600 truncate flex-1">
+          {liveUrl.replace("https://", "")}
+        </span>
+        {/* ▶ Replay button */}
+        <button
+          onClick={startReplay}
+          disabled={isReplaying}
+          className="ml-auto text-[10px] text-gray-600 hover:text-primary disabled:opacity-40 disabled:cursor-not-allowed transition-colors shrink-0 font-mono"
+          aria-label="Replay terminal animation"
+        >
+          ▶ Replay
+        </button>
       </div>
-      <span className="ml-2 text-xs text-gray-600 truncate">
-        {liveUrl.replace("https://", "")}
-      </span>
-    </div>
 
-    {/* Terminal content */}
-    <div className="flex-1 p-5 space-y-0.5 overflow-hidden">
-      {lines.map((line, i) => {
-        if (line === "") return <div key={i} className="h-3" />;
+      {/* Terminal content */}
+      <div className="flex-1 p-5 space-y-0.5 overflow-hidden">
+        {visibleLines.map((line, i) => {
+          if (line === "") return <div key={i} className="h-3" />;
 
-        const isCommand = line.startsWith("$");
-        const isSuccess = line.trim().startsWith("✓");
-        const isWaiting = line.trim().startsWith("⏸");
-        const isResult  = line.trim().startsWith("⚡") || line.trim().startsWith("↳");
+          const isCommand = line.startsWith("$");
+          const isSuccess = line.trim().startsWith("✓");
+          const isWaiting = line.trim().startsWith("⏸");
+          const isResult  = line.trim().startsWith("⚡") || line.trim().startsWith("↳");
 
-        return (
-          <div
-            key={i}
-            className={
-              isCommand
-                ? "text-primary font-semibold"
-                : isSuccess
-                ? "text-green-400"
-                : isWaiting
-                ? "text-yellow-400"
-                : isResult
-                ? "text-primary/70"
-                : "text-gray-500"
-            }
-          >
-            {line}
-          </div>
-        );
-      })}
-      {/* Blinking cursor */}
-      <div className="flex items-center gap-1 text-gray-600 mt-1">
-        <span>$</span>
-        <span className="w-2 h-4 bg-primary/50 animate-terminal-blink" aria-hidden="true" />
+          return (
+            <div
+              key={i}
+              className={
+                isCommand
+                  ? "text-primary font-semibold"
+                  : isSuccess
+                  ? "text-green-400"
+                  : isWaiting
+                  ? "text-yellow-400"
+                  : isResult
+                  ? "text-primary/70"
+                  : "text-gray-500"
+              }
+            >
+              {line}
+            </div>
+          );
+        })}
+        {/* Blinking cursor */}
+        <div className="flex items-center gap-1 text-gray-600 mt-1">
+          <span>$</span>
+          <span className="w-2 h-4 bg-primary/50 animate-terminal-blink" aria-hidden="true" />
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const FeaturedCard = ({ project }: { project: Project }) => {
   const [termOpen, setTermOpen] = useState(false);
@@ -199,7 +247,7 @@ const FeaturedCard = ({ project }: { project: Project }) => {
             <span className="text-xs text-gray-600">{project.year}</span>
           </div>
 
-          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug">
+          <h3 className="font-heading text-xl font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug">
             {project.title}
           </h3>
 
@@ -274,12 +322,27 @@ const FeaturedCard = ({ project }: { project: Project }) => {
   );
 };
 
-const SecondaryCard = ({ project, delay }: { project: Project; delay: string }) => (
+const SecondaryCard = ({
+  project,
+  delay,
+  decorativeIcon,
+}: {
+  project: Project;
+  delay: string;
+  decorativeIcon?: { Icon: LucideIcon; className: string };
+}) => (
   <article
-    className="glass rounded-xl p-6 flex flex-col space-y-4 hover:border-white/15 hover:-translate-y-1 transition-all duration-300 group"
+    className="glass rounded-xl p-6 flex flex-col space-y-4 hover:border-white/15 hover:-translate-y-1 transition-all duration-300 group relative overflow-hidden"
     data-reveal
     data-delay={delay}
   >
+    {/* Decorative background icon — faded, behind content */}
+    {decorativeIcon && (
+      <div className="absolute top-4 right-4 pointer-events-none" aria-hidden="true">
+        <decorativeIcon.Icon size={40} className={decorativeIcon.className} />
+      </div>
+    )}
+
     <div className="flex justify-between items-center">
       <span className={`text-xs font-semibold px-2 py-1 rounded-full ${project.badgeClass}`}>
         {project.badge}
@@ -287,7 +350,7 @@ const SecondaryCard = ({ project, delay }: { project: Project; delay: string }) 
       <span className="text-xs text-gray-600">{project.year}</span>
     </div>
 
-    <h3 className="font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug text-base">
+    <h3 className="font-heading font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug text-base">
       {project.title}
     </h3>
 
@@ -313,8 +376,12 @@ const SecondaryCard = ({ project, delay }: { project: Project; delay: string }) 
 );
 
 const Projects = () => (
-  <section id="projects" className="py-24 bg-secondary">
-    <div className="container mx-auto px-6">
+  <section id="projects" className="py-24 bg-secondary relative overflow-hidden">
+    {/* Subtle aurora blobs for depth */}
+    <div className="aurora-blob aurora-blob-subtle absolute w-[500px] h-[500px] bg-indigo-400 -top-24 -right-24" aria-hidden="true" style={{ animationDelay: '3s' }} />
+    <div className="aurora-blob aurora-blob-subtle absolute w-[350px] h-[350px] bg-cyan-500 bottom-16 -left-24" aria-hidden="true" style={{ animationDelay: '11s' }} />
+
+    <div className="container mx-auto px-6 relative z-10">
       <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
         03.
       </p>
@@ -335,7 +402,12 @@ const Projects = () => (
 
       <div className="grid md:grid-cols-3 gap-5">
         {SECONDARY.map((p, i) => (
-          <SecondaryCard key={p.title} project={p} delay={String(i + 1)} />
+          <SecondaryCard
+            key={p.title}
+            project={p}
+            delay={String(i + 1)}
+            decorativeIcon={SECONDARY_ICONS[i]}
+          />
         ))}
       </div>
     </div>

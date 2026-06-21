@@ -14,6 +14,11 @@ const Hero = () => (
     className="min-h-screen flex items-center justify-center relative bg-black overflow-hidden"
     aria-label="Introduction"
   >
+    {/* Aurora blobs — depth and atmosphere */}
+    <div className="aurora-blob absolute w-[700px] h-[700px] bg-indigo-400 -top-40 -left-40" aria-hidden="true" style={{ animationDelay: '0s' }} />
+    <div className="aurora-blob absolute w-[500px] h-[500px] bg-cyan-500 top-1/4 -right-40" aria-hidden="true" style={{ animationDelay: '7s' }} />
+    <div className="aurora-blob absolute w-[400px] h-[400px] bg-violet-600 bottom-0 left-1/3" aria-hidden="true" style={{ animationDelay: '14s' }} />
+
     {/* Dot-grid background — CSS only, zero JS cost */}
     <div className="absolute inset-0 dot-grid opacity-30" aria-hidden="true" />
 

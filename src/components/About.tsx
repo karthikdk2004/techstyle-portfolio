@@ -65,7 +65,7 @@ const About = () => (
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4" data-reveal data-delay="4">
             <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
               <Award className="text-primary" size={20} aria-hidden="true" />
-              <h3 className="font-semibold text-sm text-white">Achievements</h3>
+              <h3 className="font-heading font-semibold text-sm text-white">Achievements</h3>
               <p className="text-xs text-gray-500 leading-relaxed">
                 SIH 2023 National Winner · IEEE ICIIP 2025 Lead Author · Patent Co-Inventor
               </p>
@@ -73,7 +73,7 @@ const About = () => (
 
             <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
               <Book className="text-primary" size={20} aria-hidden="true" />
-              <h3 className="font-semibold text-sm text-white">Education</h3>
+              <h3 className="font-heading font-semibold text-sm text-white">Education</h3>
               <p className="text-xs text-gray-500 leading-relaxed">
                 B.Tech ECE, CGPA 8.97 · Minor in AI &amp; ML (CGPA 8.5)
                 <br />
@@ -83,7 +83,7 @@ const About = () => (
 
             <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
               <FileText className="text-primary" size={20} aria-hidden="true" />
-              <h3 className="font-semibold text-sm text-white">Research &amp; IP</h3>
+              <h3 className="font-heading font-semibold text-sm text-white">Research &amp; IP</h3>
               <p className="text-xs text-gray-500 leading-relaxed">
                 IEEE ICIIP 2025 — 97.75% GI classification accuracy.
                 Patent: AI acoustic rail defect detection (Indian Patent Office).
