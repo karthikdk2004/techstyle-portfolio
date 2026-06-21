@@ -58,7 +58,7 @@ const Navigation = () => {
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-black/80 backdrop-blur-md border-b border-white/5" : "bg-transparent"
+        isScrolled ? "bg-[#080d18]/95 backdrop-blur-xl border-b border-white/8" : "bg-transparent"
       }`}
       aria-label="Main navigation"
     >
@@ -93,28 +93,28 @@ const Navigation = () => {
                 href="https://github.com/karthikdk2004"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white hover:bg-white/8 p-1.5 rounded-md transition-colors"
                 aria-label="GitHub profile"
               >
-                <Github size={18} />
+                <Github size={17} />
               </a>
               <a
                 href="https://www.linkedin.com/in/karthik-reddy-devireddy-ab6927260/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition-colors"
+                className="text-gray-400 hover:text-white hover:bg-white/8 p-1.5 rounded-md transition-colors"
                 aria-label="LinkedIn profile"
               >
-                <Linkedin size={18} />
+                <Linkedin size={17} />
               </a>
             </div>
 
             <a
               href="#contact"
               onClick={(e) => handleAnchorClick(e, "#contact")}
-              className="px-4 py-2 bg-primary text-white text-sm font-semibold rounded-lg hover:bg-primary/90 transition-colors"
+              className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white text-sm font-semibold rounded-lg transition-colors"
             >
-              Hire me
+              Get in touch
             </a>
           </div>
 

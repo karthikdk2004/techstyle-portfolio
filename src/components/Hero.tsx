@@ -2,10 +2,10 @@
 import { ArrowDown } from "lucide-react";
 
 const STATS = [
-  { number: "1st", label: "SIH 2023", sub: "Ministry of Defence · 1M+ teams" },
-  { number: "97.75%", label: "IEEE ICIIP 2025", sub: "GI disease classification" },
-  { number: "2", label: "Live AI apps", sub: "Deployed & publicly accessible" },
-  { number: "8.3s", label: "Real codebase reviewed", sub: "Facebook React · 31k★" },
+  { number: "8.3s", label: "PR reviewed", sub: "React · 246k★ · 247 files" },
+  { number: "<10s", label: "Email drafted", sub: "Context → draft → approval" },
+  { number: "16", label: "Prod fixes", sub: "Committed · documented in Git" },
+  { number: "7", label: "REST endpoints", sub: "Email agent API surface" },
 ];
 
 const Hero = () => (
@@ -60,7 +60,7 @@ const Hero = () => (
         <div className="flex flex-wrap justify-center gap-4">
           <a
             href="#projects"
-            className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors hover-glow"
+            className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-colors hover-glow"
           >
             View my work
           </a>

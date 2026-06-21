@@ -11,12 +11,17 @@ const About = () => (
         <div className="lg:w-1/3 flex justify-center" data-reveal>
           <div className="relative">
             <div className="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-[1.03]">
-              <img
-                src="/lovable-uploads/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
-                alt="D. Karthik Reddy"
-                className="w-full h-full object-cover"
-                loading="lazy"
-              />
+              <picture>
+                <source srcSet="/lovable-uploads/profile.webp" type="image/webp" />
+                <img
+                  src="/lovable-uploads/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
+                  alt="D. Karthik Reddy"
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  width="256"
+                  height="256"
+                />
+              </picture>
             </div>
             <div
               className="absolute -inset-4 rounded-2xl -z-10 opacity-30"

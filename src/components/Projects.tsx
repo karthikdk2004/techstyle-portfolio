@@ -1,5 +1,6 @@
 
-import { ExternalLink } from "lucide-react";
+import { ExternalLink, Terminal } from "lucide-react";
+import { useState } from "react";
 
 interface Project {
   title: string;
@@ -20,19 +21,19 @@ const FEATURED: Project[] = [
     description:
       "Most code review tools surface lint warnings. I wanted one that reads a PR like a senior engineer — understanding context, spotting logic issues, explaining the why behind every comment.",
     result:
-      "Analysed the Facebook React repo (31k★) in 8.3 seconds. 16 production fixes committed with documented Git history.",
+      "Analysed the React repo (246k★) in 8.3 seconds. 16 production fixes committed with documented Git history.",
     techStack: ["Python", "FastAPI", "React", "REST APIs", "Git", "Unit Testing", "Agile"],
     year: "2025",
     badge: "LIVE",
     badgeClass: "bg-green-500/15 text-green-400 border border-green-500/25",
     liveUrl: "https://ai-pr-reviewer-eta.vercel.app",
     metrics: [
-      "8.3 s — Facebook React (31k★) reviewed end-to-end",
+      "8.3 s — React (246k★) reviewed end-to-end",
       "16 production fixes · documented Git history",
       "Requirements → Vercel deployment, zero manual infra",
     ],
     terminal: [
-      "$ ai-reviewer --repo facebook/react --pr 28741",
+      "$ ai-reviewer --repo react/react --pr 28741",
       "",
       "  Scanning 247 files...",
       "",
@@ -183,72 +184,95 @@ const TerminalPane = ({ lines, liveUrl }: { lines: string[]; liveUrl: string }) 
   </div>
 );
 
-const FeaturedCard = ({ project }: { project: Project }) => (
-  <article className="glass rounded-2xl overflow-hidden hover:border-white/15 transition-all duration-300 group" data-reveal>
-    <div className="grid md:grid-cols-5 gap-0">
-      {/* Text */}
-      <div className="md:col-span-3 p-8 flex flex-col space-y-5">
-        <div className="flex items-center gap-3">
-          <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${project.badgeClass}`}>
-            {project.badge}
-          </span>
-          <span className="text-xs text-gray-600">{project.year}</span>
-        </div>
+const FeaturedCard = ({ project }: { project: Project }) => {
+  const [termOpen, setTermOpen] = useState(false);
 
-        <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug">
-          {project.title}
-        </h3>
-
-        <p className="text-gray-400 text-sm leading-relaxed flex-1">{project.description}</p>
-
-        <div className="px-4 py-3 bg-white/[0.03] rounded-xl border border-white/6">
-          <p className="text-xs font-semibold text-primary mb-1 uppercase tracking-wider">Result</p>
-          <p className="text-sm text-gray-300 leading-relaxed">{project.result}</p>
-        </div>
-
-        <ul className="space-y-1.5">
-          {project.metrics.map((m) => (
-            <li key={m} className="flex items-center gap-2 text-xs text-gray-500">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" aria-hidden="true" />
-              {m}
-            </li>
-          ))}
-        </ul>
-
-        <div className="flex flex-wrap gap-1.5">
-          {project.techStack.map((t) => (
-            <span key={t} className="px-2 py-0.5 bg-primary/8 text-primary/75 rounded-full text-xs border border-primary/12">
-              {t}
+  return (
+    <article className="glass rounded-2xl overflow-hidden hover:border-white/15 transition-all duration-300 group" data-reveal>
+      <div className="grid md:grid-cols-5 gap-0">
+        {/* Text */}
+        <div className="md:col-span-3 p-8 flex flex-col space-y-5">
+          <div className="flex items-center gap-3">
+            <span className={`text-xs font-semibold px-2.5 py-1 rounded-full ${project.badgeClass}`}>
+              {project.badge}
             </span>
-          ))}
+            <span className="text-xs text-gray-600">{project.year}</span>
+          </div>
+
+          <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors duration-200 leading-snug">
+            {project.title}
+          </h3>
+
+          <p className="text-gray-400 text-sm leading-relaxed flex-1">{project.description}</p>
+
+          <div className="px-4 py-3 bg-white/[0.03] rounded-xl border border-white/6">
+            <p className="text-xs font-semibold text-primary mb-1 uppercase tracking-wider">Result</p>
+            <p className="text-sm text-gray-300 leading-relaxed">{project.result}</p>
+          </div>
+
+          <ul className="space-y-1.5">
+            {project.metrics.map((m) => (
+              <li key={m} className="flex items-center gap-2 text-xs text-gray-500">
+                <span className="w-1.5 h-1.5 rounded-full bg-primary/50 shrink-0" aria-hidden="true" />
+                {m}
+              </li>
+            ))}
+          </ul>
+
+          <div className="flex flex-wrap gap-1.5">
+            {project.techStack.map((t) => (
+              <span key={t} className="px-2 py-0.5 bg-primary/8 text-primary/75 rounded-full text-xs border border-primary/12">
+                {t}
+              </span>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3 pt-1 flex-wrap">
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg text-sm font-semibold transition-colors hover-glow"
+              >
+                <ExternalLink size={14} aria-hidden="true" />
+                Live demo
+              </a>
+            )}
+
+            {/* Mobile terminal toggle — hidden on md+ where grid shows it */}
+            {project.terminal && project.liveUrl && (
+              <button
+                onClick={() => setTermOpen(!termOpen)}
+                className="md:hidden inline-flex items-center gap-1.5 text-xs text-gray-500 hover:text-primary transition-colors font-mono"
+                aria-expanded={termOpen}
+              >
+                <Terminal size={12} aria-hidden="true" />
+                {termOpen ? "Hide output" : "View terminal output →"}
+              </button>
+            )}
+          </div>
+
+          {/* Mobile terminal pane — expands inline below button */}
+          {project.terminal && project.liveUrl && termOpen && (
+            <div className="md:hidden">
+              <TerminalPane lines={project.terminal} liveUrl={project.liveUrl} />
+            </div>
+          )}
         </div>
 
-        {project.liveUrl && (
-          <div className="pt-1">
-            <a
-              href={project.liveUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 bg-primary text-white rounded-lg text-sm font-semibold hover:bg-primary/90 transition-colors hover-glow"
-            >
-              <ExternalLink size={14} aria-hidden="true" />
-              Live demo
-            </a>
+        {/* Desktop terminal preview — hidden on mobile */}
+        {project.terminal && project.liveUrl && (
+          <div className="hidden md:flex md:col-span-2 p-4">
+            <div className="w-full">
+              <TerminalPane lines={project.terminal} liveUrl={project.liveUrl} />
+            </div>
           </div>
         )}
       </div>
-
-      {/* Terminal preview */}
-      {project.terminal && project.liveUrl && (
-        <div className="md:col-span-2 p-4 flex">
-          <div className="w-full">
-            <TerminalPane lines={project.terminal} liveUrl={project.liveUrl} />
-          </div>
-        </div>
-      )}
-    </div>
-  </article>
-);
+    </article>
+  );
+};
 
 const SecondaryCard = ({ project, delay }: { project: Project; delay: string }) => (
   <article
