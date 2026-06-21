@@ -14,21 +14,25 @@ const STATS = [
     number: "1st",
     label: "Smart India Hackathon 2023",
     sub: "Ministry of Defence · 1M+ national participants",
+    highlight: true,
   },
   {
     number: "97.75%",
     label: "IEEE ICIIP 2025",
     sub: "GI disease classification · peer-reviewed lead author",
+    highlight: false,
   },
   {
     number: "2",
     label: "Live AI apps deployed",
     sub: "PR Reviewer · Email Agent · accessible now",
+    highlight: false,
   },
   {
     number: "Patent",
     label: "Co-Inventor",
     sub: "AI acoustic rail defect detection · Indian Patent Office",
+    highlight: false,
   },
 ];
 
@@ -40,10 +44,10 @@ const Achievements = () => (
   >
     <div className="container mx-auto px-6">
       <p
-        className="text-center text-xs font-semibold text-primary uppercase tracking-widest mb-14"
+        className="text-center font-mono text-xs text-primary/70 mb-14"
         data-reveal
       >
-        By the numbers
+        // metrics
       </p>
 
       <div
@@ -56,7 +60,7 @@ const Achievements = () => (
             key={i}
             className="bg-black/80 px-6 py-10 text-center hover:bg-white/[0.04] transition-colors duration-300 group"
           >
-            <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 group-hover:text-primary transition-colors duration-300 leading-none">
+            <div className={`text-4xl md:text-5xl lg:text-6xl font-black mb-3 group-hover:text-primary transition-colors duration-300 leading-none ${s.highlight ? "text-amber-400" : "text-white"}`}>
               {s.number}
             </div>
             <div className="text-sm font-semibold text-primary mb-1.5">{s.label}</div>

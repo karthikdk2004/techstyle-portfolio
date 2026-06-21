@@ -74,11 +74,11 @@ const Contact = () => {
 
           {/* Left column — contact */}
           <div className="lg:col-span-3 space-y-0">
-            <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3" data-reveal>
-              Contact
+            <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
+              04.
             </p>
 
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-reveal data-delay="1">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
               Let's work together.
             </h2>
 

@@ -33,11 +33,11 @@ const About = () => (
 
         {/* Content */}
         <div className="lg:w-2/3 space-y-6">
-          <p className="text-xs font-semibold text-primary uppercase tracking-widest" data-reveal>
-            About
+          <p className="font-mono text-xs text-primary/70" data-reveal>
+            01.
           </p>
           <h2
-            className="text-3xl md:text-4xl font-black text-white leading-tight"
+            className="text-3xl md:text-4xl font-heading font-bold text-white leading-tight"
             data-reveal
             data-delay="1"
           >

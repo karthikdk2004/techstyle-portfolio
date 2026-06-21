@@ -54,11 +54,11 @@ const Skills = () => (
   <section id="skills" className="py-24 bg-black">
     <div className="container mx-auto px-6">
 
-      <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3" data-reveal>
-        Skills
+      <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
+        02.
       </p>
       <h2
-        className="text-3xl md:text-4xl font-black text-white mb-16"
+        className="text-3xl md:text-4xl font-heading font-bold text-white mb-16"
         data-reveal
         data-delay="1"
       >

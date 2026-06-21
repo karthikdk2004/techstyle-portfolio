@@ -28,10 +28,10 @@ const Hero = () => (
     />
 
     <div className="container mx-auto px-6 py-20 relative z-10">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
+      <div className="max-w-4xl mx-auto space-y-8">
 
         {/* Available signal */}
-        <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
+        <div className="flex items-center gap-2 text-sm text-gray-400">
           <span
             className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"
             aria-hidden="true"
@@ -40,24 +40,24 @@ const Hero = () => (
         </div>
 
         {/* Role label */}
-        <p className="text-xs font-semibold text-primary uppercase tracking-[0.25em]">
-          AI / ML Engineer · Full-Stack Developer
+        <p className="font-mono text-xs text-primary/70 tracking-wide">
+          ai / ml engineer · full-stack developer
         </p>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white tracking-tight leading-none">
           D. Karthik Reddy
         </h1>
 
         {/* Single declarative value prop */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
           I build AI systems that ship — deployed, peer-reviewed, and already live.
           <br className="hidden md:block" />
           SIH 2023 national winner. IEEE-published. Patent co-inventor.
         </p>
 
         {/* CTA buttons */}
-        <div className="flex flex-wrap justify-center gap-4">
+        <div className="flex flex-wrap gap-4">
           <a
             href="#projects"
             className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-colors hover-glow"

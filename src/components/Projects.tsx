@@ -104,7 +104,7 @@ const SECONDARY: Project[] = [
     techStack: ["Python", "C", "C++", "Embedded Systems", "Real-Time Systems", "Git"],
     year: "2023",
     badge: "🏆 SIH 2023",
-    badgeClass: "bg-yellow-500/15 text-yellow-400 border border-yellow-500/25",
+    badgeClass: "bg-amber-500/15 text-amber-400 border border-amber-500/25",
     liveUrl: null,
     metrics: [
       "1st place · 1M+ national participants",
@@ -315,10 +315,10 @@ const SecondaryCard = ({ project, delay }: { project: Project; delay: string }) 
 const Projects = () => (
   <section id="projects" className="py-24 bg-secondary">
     <div className="container mx-auto px-6">
-      <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-3" data-reveal>
-        Work
+      <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
+        03.
       </p>
-      <h2 className="text-3xl md:text-4xl font-black text-white mb-4" data-reveal data-delay="1">
+      <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
         Featured projects
       </h2>
       <p className="text-gray-500 mb-16 max-w-xl text-sm leading-relaxed" data-reveal data-delay="2">
