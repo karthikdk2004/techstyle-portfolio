@@ -1,5 +1,5 @@
 
-import { Mail, Linkedin, Github, Phone, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, Github, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 import { Toaster } from "@/components/ui/toaster";
@@ -109,13 +109,6 @@ const Contact = () => {
 
             {/* Secondary contact links */}
             <div className="flex flex-wrap items-center gap-6 mt-7 mb-10" data-reveal data-delay="4">
-              <a
-                href="tel:+919618626228"
-                className="flex items-center gap-2 text-sm text-gray-500 hover:text-primary transition-colors duration-200"
-              >
-                <Phone size={14} aria-hidden="true" />
-                +91-9618626228
-              </a>
               <a
                 href="https://www.linkedin.com/in/karthik-reddy-devireddy-ab6927260/"
                 target="_blank"
