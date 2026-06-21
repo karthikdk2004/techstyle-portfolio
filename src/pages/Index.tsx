@@ -1,127 +1,89 @@
+
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
+import Footer from "@/components/Footer";
 import { Toaster } from "@/components/ui/toaster";
-import { Brain, Code2, Users, Rocket, CheckCircle2 } from "lucide-react";
-import { motion } from "framer-motion";
-import ResumeModal from "@/components/ResumeModal";
+import { useScrollReveal } from "@/hooks/useScrollReveal";
 
-const WhyHireMe = () => {
-  const strengths = [
-    {
-      icon: <Brain className="text-primary w-8 h-8" />,
-      title: "AI & Machine Learning",
-      description: "Built multiple successful AI projects including a 98.21% accurate Deepfake Detection model.",
-    },
-    {
-      icon: <Code2 className="text-primary w-8 h-8" />,
-      title: "Full-Stack Development",
-      description: "Proficient in modern web technologies and frameworks, creating responsive and intuitive applications.",
-    },
-    {
-      icon: <Rocket className="text-primary w-8 h-8" />,
-      title: "Innovation & Problem Solving",
-      description: "Smart India Hackathon winner, demonstrating ability to deliver innovative solutions under pressure.",
-    },
-    {
-      icon: <Users className="text-primary w-8 h-8" />,
-      title: "Team Collaboration",
-      description: "Strong track record of working effectively in diverse teams and delivering successful projects.",
-    },
-  ];
+const STATS = [
+  {
+    number: "1st",
+    label: "Smart India Hackathon 2023",
+    sub: "Ministry of Defence · 1M+ national participants",
+  },
+  {
+    number: "97.75%",
+    label: "IEEE ICIIP 2025",
+    sub: "GI disease classification · peer-reviewed lead author",
+  },
+  {
+    number: "2",
+    label: "Live AI apps deployed",
+    sub: "PR Reviewer · Email Agent · accessible now",
+  },
+  {
+    number: "Patent",
+    label: "Co-Inventor",
+    sub: "AI acoustic rail defect detection · Indian Patent Office",
+  },
+];
 
-  const valueProposition = [
-    "Innovative problem-solver with a proven track record",
-    "Strong foundation in both AI/ML and embedded systems",
-    "Passionate about creating impactful technological solutions",
-    "Quick learner with excellent adaptability to new technologies",
-  ];
+const Achievements = () => (
+  <section
+    id="achievements"
+    className="py-24 bg-black border-y border-white/5"
+    aria-label="Key achievements"
+  >
+    <div className="container mx-auto px-6">
+      <p
+        className="text-center text-xs font-semibold text-primary uppercase tracking-widest mb-14"
+        data-reveal
+      >
+        By the numbers
+      </p>
 
-  return (
-    <section className="py-20 bg-gradient-to-b from-secondary to-black">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6">
-            Why Hire Me?
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            A passionate technologist combining AI expertise with hands-on development skills to create innovative solutions.
-          </p>
-        </motion.div>
-
-        {/* Value Proposition */}
-        <div className="glass rounded-xl p-8 mb-12">
-          <h3 className="text-2xl font-heading font-bold mb-6">What Sets Me Apart</h3>
-          <div className="grid md:grid-cols-2 gap-6">
-            {valueProposition.map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
-                viewport={{ once: true }}
-                className="flex items-start gap-3"
-              >
-                <CheckCircle2 className="text-primary shrink-0 mt-1" />
-                <p className="text-gray-300">{value}</p>
-              </motion.div>
-            ))}
+      <div
+        className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5 rounded-2xl overflow-hidden border border-white/8"
+        data-reveal
+        data-delay="1"
+      >
+        {STATS.map((s, i) => (
+          <div
+            key={i}
+            className="bg-black/80 px-6 py-10 text-center hover:bg-white/[0.04] transition-colors duration-300 group"
+          >
+            <div className="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-3 group-hover:text-primary transition-colors duration-300 leading-none">
+              {s.number}
+            </div>
+            <div className="text-sm font-semibold text-primary mb-1.5">{s.label}</div>
+            <div className="text-xs text-gray-600 leading-relaxed max-w-[140px] mx-auto">
+              {s.sub}
+            </div>
           </div>
-        </div>
-
-        {/* Core Strengths */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {strengths.map((strength, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="glass p-6 rounded-xl hover:bg-white/5 transition-colors group"
-            >
-              <div className="mb-4 group-hover:scale-110 transition-transform">
-                {strength.icon}
-              </div>
-              <h3 className="font-heading font-semibold mb-2">{strength.title}</h3>
-              <p className="text-sm text-gray-400">{strength.description}</p>
-            </motion.div>
-          ))}
-        </div>
+        ))}
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 const Index = () => {
+  useScrollReveal();
+
   return (
-    <main className="bg-black text-white min-h-screen relative">
-      {/* Animated background effects */}
-      <div className="fixed inset-0 z-0">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/5 via-background to-background animate-pulse"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:8rem_1px]"></div>
-        <div className="absolute inset-0 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.025)_1px,transparent_1px)] bg-[size:1px_8rem]"></div>
-      </div>
-      
-      {/* Main content */}
-      <div className="relative z-10">
-        <Navigation />
-        <Hero />
-        <About />
-        <Skills />
-        <Projects />
-        <WhyHireMe />
-        <Contact />
-        <Toaster />
-      </div>
+    <main id="main-content" className="bg-black text-white min-h-screen">
+      <Navigation />
+      <Hero />
+      <About />
+      <Skills />
+      <Projects />
+      <Achievements />
+      <Contact />
+      <Footer />
+      <Toaster />
     </main>
   );
 };

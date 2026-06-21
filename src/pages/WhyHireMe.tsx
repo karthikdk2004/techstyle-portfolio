@@ -1,165 +1,145 @@
 
-import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
-import { Award, Brain, Code2, Users, Rocket, CheckCircle2, Linkedin, Mail } from "lucide-react";
-import { motion } from "framer-motion";
-import { useNavigate } from "react-router-dom";
+import Footer from "@/components/Footer";
+import { Linkedin, Mail, ExternalLink } from "lucide-react";
 
-const WhyHireMe = () => {
-  const navigate = useNavigate();
+const CREDENTIALS = [
+  {
+    label: "SIH 2023 — National Winner",
+    detail: "Ministry of Defence track · 1M+ national participants · Government of India",
+    stat: "1st",
+  },
+  {
+    label: "IEEE ICIIP 2025 — Lead Author",
+    detail: "Ensemble Vision Transformers for GI disease classification · peer-reviewed",
+    stat: "97.75%",
+  },
+  {
+    label: "Patent Co-Inventor",
+    detail: "AI-based acoustic real-time rail defect detection · Indian Patent Office",
+    stat: "Filed",
+  },
+  {
+    label: "2 Live AI Applications",
+    detail: "AI GitHub PR Reviewer · AI Email Agent · both deployed on Vercel",
+    stat: "Live",
+  },
+];
 
-  const strengths = [
-    {
-      icon: <Brain className="text-primary w-8 h-8" />,
-      title: "AI & Machine Learning",
-      description: "Built multiple successful AI projects including a 98.21% accurate Deepfake Detection model.",
-    },
-    {
-      icon: <Code2 className="text-primary w-8 h-8" />,
-      title: "Full-Stack Development",
-      description: "Proficient in modern web technologies and frameworks, creating responsive and intuitive applications.",
-    },
-    {
-      icon: <Rocket className="text-primary w-8 h-8" />,
-      title: "Innovation & Problem Solving",
-      description: "Smart India Hackathon winner, demonstrating ability to deliver innovative solutions under pressure.",
-    },
-    {
-      icon: <Users className="text-primary w-8 h-8" />,
-      title: "Team Collaboration",
-      description: "Strong track record of working effectively in diverse teams and delivering successful projects.",
-    },
-  ];
+const SKILLS = [
+  { area: "Languages", items: "Python · C · C++ · JavaScript · SQL" },
+  { area: "AI / ML", items: "PyTorch · TensorFlow · LangGraph · LangChain · Scikit-learn · Computer Vision" },
+  { area: "Web & Backend", items: "FastAPI · React · Node.js · PostgreSQL · OAuth 2.0 · REST APIs" },
+  { area: "Engineering", items: "SDLC · Agile · Unit Testing · Debugging · Code Reviews · Git" },
+  { area: "CS Fundamentals", items: "DSA (183 LeetCode) · OOP · OS · DBMS · Computer Networks · Distributed Systems" },
+];
 
-  const achievements = [
-    "🏆 Winner of Smart India Hackathon 2023 (Ministry of Defence)",
-    "🤖 Developed AI-based Acoustic Wave Monitoring System (90% accuracy)",
-    "🚀 Created Drone-Based Magnetic Sensing System (40% accuracy improvement)",
-    "💡 Built Multiple Full-Stack Web Applications",
-  ];
+const WhyHireMe = () => (
+  <div className="min-h-screen bg-black text-white">
+    <Navigation />
 
-  const valueProposition = [
-    "Innovative problem-solver with a proven track record",
-    "Strong foundation in both AI/ML and embedded systems",
-    "Passionate about creating impactful technological solutions",
-    "Quick learner with excellent adaptability to new technologies",
-  ];
+    <main id="main-content" className="pt-24 pb-0">
+      {/* Header */}
+      <section className="py-16 container mx-auto px-6 max-w-3xl text-center">
+        <p className="text-xs font-semibold text-primary uppercase tracking-widest mb-4">Credentials</p>
+        <h1 className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight">
+          What I bring to the table.
+        </h1>
+        <p className="text-gray-400 text-lg leading-relaxed">
+          Final-year B.Tech ECE graduate (CGPA&nbsp;8.97) with a Minor in AI&nbsp;&amp;&nbsp;ML —
+          IEEE-published, national hackathon winner, patent co-inventor, and two deployed AI
+          applications you can open right now.
+        </p>
+      </section>
 
-  return (
-    <div className="min-h-screen bg-black">
-      <Navigation />
-      
-      <main className="pt-20">
-        {/* Hero Section */}
-        <section className="py-20 relative overflow-hidden">
-          <div className="container mx-auto px-6 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center"
+      {/* Achievement wall */}
+      <section className="border-y border-white/5">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-px bg-white/5">
+          {CREDENTIALS.map((c, i) => (
+            <div
+              key={i}
+              className="bg-black px-6 py-10 text-center hover:bg-white/[0.04] transition-colors group"
             >
-              <h1 className="text-4xl md:text-5xl font-heading font-bold mb-6">
-                Why Hire Me?
-              </h1>
-              <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-                A passionate technologist combining AI expertise with hands-on development skills to create innovative solutions.
-              </p>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Value Proposition */}
-        <section className="py-16 bg-gradient-to-b from-black to-secondary">
-          <div className="container mx-auto px-6">
-            <div className="glass rounded-xl p-8 mb-12">
-              <h2 className="text-2xl font-heading font-bold mb-6">What Sets Me Apart</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {valueProposition.map((value, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-start gap-3"
-                  >
-                    <CheckCircle2 className="text-primary shrink-0 mt-1" />
-                    <p className="text-gray-300">{value}</p>
-                  </motion.div>
-                ))}
+              <div className="text-4xl font-black text-white group-hover:text-primary transition-colors mb-3 leading-none">
+                {c.stat}
               </div>
+              <div className="text-sm font-semibold text-primary mb-1.5">{c.label}</div>
+              <div className="text-xs text-gray-600 leading-relaxed">{c.detail}</div>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Core Strengths */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-              {strengths.map((strength, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
-                  className="glass p-6 rounded-xl hover:bg-white/5 transition-colors group"
-                >
-                  <div className="mb-4 group-hover:scale-110 transition-transform">
-                    {strength.icon}
-                  </div>
-                  <h3 className="font-heading font-semibold mb-2">{strength.title}</h3>
-                  <p className="text-sm text-gray-400">{strength.description}</p>
-                </motion.div>
-              ))}
-            </div>
+      {/* Education */}
+      <section className="py-16 container mx-auto px-6 max-w-3xl">
+        <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-8">Education</h2>
+        <div className="glass rounded-xl p-6 space-y-1">
+          <h3 className="font-bold text-white text-lg">
+            B.Tech — Electronics & Communication Engineering
+          </h3>
+          <p className="text-gray-400 text-sm">
+            VNR Vignana Jyothi Institute of Engineering & Technology, Hyderabad
+          </p>
+          <p className="text-gray-500 text-sm">2022 – May 2026</p>
+          <p className="text-primary text-sm font-medium pt-1">
+            CGPA: 8.97 / 10.0 · Minor in AI & ML (CGPA 8.5)
+          </p>
+        </div>
+      </section>
 
-            {/* Key Achievements */}
-            <div className="glass rounded-xl p-8 mb-12">
-              <h2 className="text-2xl font-heading font-bold mb-6">Key Achievements</h2>
-              <div className="grid md:grid-cols-2 gap-6">
-                {achievements.map((achievement, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
-                    className="flex items-center gap-3 bg-white/5 p-4 rounded-lg"
-                  >
-                    <Award className="text-primary shrink-0" />
-                    <p className="text-gray-300">{achievement}</p>
-                  </motion.div>
-                ))}
-              </div>
+      {/* Technical skills */}
+      <section className="py-8 container mx-auto px-6 max-w-3xl">
+        <h2 className="text-sm font-semibold text-primary uppercase tracking-widest mb-8">
+          Technical skills
+        </h2>
+        <div className="space-y-4">
+          {SKILLS.map((s, i) => (
+            <div key={i} className="flex flex-col sm:flex-row sm:items-baseline gap-2 py-4 border-b border-white/5 last:border-0">
+              <span className="text-xs font-semibold text-gray-500 uppercase tracking-wider sm:w-40 shrink-0">
+                {s.area}
+              </span>
+              <span className="text-sm text-gray-300">{s.items}</span>
             </div>
+          ))}
+        </div>
+      </section>
 
-            {/* Call to Action */}
-            <div className="text-center space-y-6">
-              <h2 className="text-2xl font-heading font-bold">Ready to Work Together?</h2>
-              <p className="text-gray-400 max-w-xl mx-auto">
-                Let's connect and discuss how I can contribute to your team's success.
-              </p>
-              <div className="flex justify-center gap-4">
-                <Button
-                  onClick={() => window.open("https://www.linkedin.com/in/karthik-reddy-devi-reddy-ab6927260/", "_blank")}
-                  className="gap-2 hover-glow"
-                >
-                  <Linkedin size={20} />
-                  Connect on LinkedIn
-                </Button>
-                <Button
-                  onClick={() => {
-                    const element = document.getElementById('contact');
-                    element?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  variant="outline"
-                  className="gap-2 hover-glow"
-                >
-                  <Mail size={20} />
-                  Contact Me
-                </Button>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-    </div>
-  );
-};
+      {/* CTA */}
+      <section className="py-20 container mx-auto px-6 max-w-3xl text-center space-y-6">
+        <h2 className="text-2xl font-black text-white">Ready to work together?</h2>
+        <p className="text-gray-400">
+          Open to AI/ML, software engineering, and data science roles.
+        </p>
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://www.linkedin.com/in/karthik-reddy-devireddy-ab6927260/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors"
+          >
+            <Linkedin size={18} aria-hidden="true" />
+            Connect on LinkedIn
+          </a>
+          <a
+            href="mailto:karthikreddy1420@gmail.com"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors border border-white/10"
+          >
+            <Mail size={18} aria-hidden="true" />
+            Send email
+          </a>
+          <a
+            href="/"
+            className="inline-flex items-center gap-2 px-6 py-3 text-gray-400 hover:text-white transition-colors text-sm font-medium"
+          >
+            <ExternalLink size={16} aria-hidden="true" />
+            View portfolio
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <Footer />
+  </div>
+);
 
 export default WhyHireMe;

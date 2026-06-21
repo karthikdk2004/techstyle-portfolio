@@ -6,11 +6,9 @@ import { toast } from "sonner";
 
 const ResumeModal = () => {
   const handleDownload = () => {
-    // In a real implementation, this would be a link to your actual resume PDF
-    const resumeUrl = "public/Resume.pdf";
     const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Resume.pdf";
+    link.href = "/Resume.pdf";
+    link.download = "Karthik_Reddy_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -27,57 +25,75 @@ const ResumeModal = () => {
       </DialogTrigger>
       <DialogContent className="max-w-3xl bg-background/95 backdrop-blur">
         <DialogHeader>
-          <DialogTitle className="text-2xl font-heading">Professional Journey</DialogTitle>
+          <DialogTitle className="text-2xl font-heading">D. Karthik Reddy — Resume</DialogTitle>
         </DialogHeader>
-        
-        {/* Timeline */}
+
         <div className="mt-6 space-y-8">
-          <div className="space-y-6">
-            {/* Education Timeline */}
-            <div className="relative pl-8 border-l-2 border-primary/30">
-              <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0"></div>
-              <h3 className="font-heading text-lg">Education</h3>
-              <div className="mt-4 space-y-4">
-                <div className="glass p-4 rounded-lg">
-                  <h4 className="font-semibold">B.Tech in Electronics and Communication</h4>
-                  <p className="text-sm text-gray-400">VNRVJIET • 2020 - Present</p>
-                  <p className="mt-2 text-sm">CGPA: 9.00/10.0</p>
-                </div>
+          {/* Education */}
+          <div className="relative pl-8 border-l-2 border-primary/30">
+            <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+            <h3 className="font-heading text-lg">Education</h3>
+            <div className="mt-4 space-y-3">
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">B.Tech — Electronics &amp; Communication Engineering</h4>
+                <p className="text-sm text-gray-400">
+                  VNR Vignana Jyothi Institute of Engineering &amp; Technology, Hyderabad
+                </p>
+                <p className="text-sm text-gray-400">2022 – May 2026</p>
+                <p className="mt-2 text-sm">CGPA: 8.97 / 10.0 · Minor in AI &amp; ML (CGPA 8.5)</p>
               </div>
             </div>
+          </div>
 
-            {/* Achievements Timeline */}
-            <div className="relative pl-8 border-l-2 border-primary/30">
-              <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0"></div>
-              <h3 className="font-heading text-lg">Key Achievements</h3>
-              <div className="mt-4 space-y-4">
-                <div className="glass p-4 rounded-lg">
-                  <h4 className="font-semibold">Smart India Hackathon 2023 Winner</h4>
-                  <p className="text-sm text-gray-400">Ministry of Defence</p>
-                  <p className="mt-2 text-sm">Developed an AI-powered solution for defense applications</p>
-                </div>
+          {/* Achievements */}
+          <div className="relative pl-8 border-l-2 border-primary/30">
+            <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+            <h3 className="font-heading text-lg">Key Achievements</h3>
+            <div className="mt-4 space-y-3">
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">Smart India Hackathon 2023 — National Winner</h4>
+                <p className="text-sm text-gray-400">Ministry of Defence track · 1 M+ national participants</p>
+              </div>
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">IEEE ICIIP 2025 — Lead Author</h4>
+                <p className="text-sm text-gray-400">
+                  Ensemble Vision Transformers for GI Disease Classification · 97.75% accuracy
+                </p>
+              </div>
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">Patent Co-Inventor</h4>
+                <p className="text-sm text-gray-400">
+                  AI-based acoustic real-time rail defect detection system · Indian Patent Office
+                </p>
               </div>
             </div>
+          </div>
 
-            {/* Skills Timeline */}
-            <div className="relative pl-8 border-l-2 border-primary/30">
-              <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0"></div>
-              <h3 className="font-heading text-lg">Technical Skills</h3>
-              <div className="mt-4 grid grid-cols-2 gap-4">
-                <div className="glass p-4 rounded-lg">
-                  <h4 className="font-semibold">Frontend Development</h4>
-                  <p className="text-sm text-gray-400">React, Next.js, TypeScript</p>
-                </div>
-                <div className="glass p-4 rounded-lg">
-                  <h4 className="font-semibold">Backend Development</h4>
-                  <p className="text-sm text-gray-400">Node.js, Python, Supabase</p>
-                </div>
+          {/* Skills */}
+          <div className="relative pl-8 border-l-2 border-primary/30">
+            <div className="absolute w-4 h-4 bg-primary rounded-full -left-[9px] top-0" />
+            <h3 className="font-heading text-lg">Technical Skills</h3>
+            <div className="mt-4 grid grid-cols-2 gap-4">
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">Languages</h4>
+                <p className="text-sm text-gray-400">Python, C, C++, JavaScript, SQL, HTML, CSS</p>
+              </div>
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">Web &amp; Backend</h4>
+                <p className="text-sm text-gray-400">React, FastAPI, Node.js, PostgreSQL, OAuth 2.0</p>
+              </div>
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">AI / ML</h4>
+                <p className="text-sm text-gray-400">PyTorch, TensorFlow, LangGraph, LangChain, Scikit-learn</p>
+              </div>
+              <div className="glass p-4 rounded-lg">
+                <h4 className="font-semibold">Engineering</h4>
+                <p className="text-sm text-gray-400">SDLC, Agile, Unit Testing, REST APIs, Git, Code Reviews</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Download Button */}
         <div className="mt-6 flex justify-end">
           <Button onClick={handleDownload} className="neon-border">
             <Download className="mr-2 h-4 w-4" />

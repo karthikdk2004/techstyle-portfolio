@@ -1,5 +1,5 @@
 
-import { Download, FileText } from "lucide-react";
+import { Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
@@ -10,18 +10,16 @@ interface ResumeButtonProps {
   text?: string;
 }
 
-const ResumeButton = ({ 
-  variant = "default", 
-  className = "", 
+const ResumeButton = ({
+  variant = "default",
+  className = "",
   showIcon = true,
-  text = "Download Resume"
+  text = "Download Resume",
 }: ResumeButtonProps) => {
   const handleDownload = () => {
-    // In a real implementation, this would be a link to your actual resume PDF
-    const resumeUrl = "public/Resume.pdf";
     const link = document.createElement("a");
-    link.href = resumeUrl;
-    link.download = "Resume.pdf";
+    link.href = "/Resume.pdf";
+    link.download = "Karthik_Reddy_Resume.pdf";
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
@@ -32,9 +30,9 @@ const ResumeButton = ({
     <Button
       onClick={handleDownload}
       variant={variant}
-      className={`hover:scale-105 transition-transform duration-300 ${className}`}
+      className={`transition-all duration-300 hover:scale-105 ${className}`}
     >
-      {showIcon && <FileText className="mr-2 h-4 w-4 animate-pulse" />}
+      {showIcon && <Download className="mr-2 h-4 w-4" />}
       {text}
     </Button>
   );

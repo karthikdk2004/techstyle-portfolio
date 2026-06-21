@@ -1,81 +1,94 @@
 
-import { Book, Award, UserCircle2 } from "lucide-react";
-import { useEffect, useRef } from "react";
-import VanillaTilt from "vanilla-tilt";
+import { Book, Award, FileText } from "lucide-react";
 import ResumeModal from "./ResumeModal";
 
-const About = () => {
-  const tiltRef = useRef<HTMLDivElement>(null);
+const About = () => (
+  <section id="about" className="py-24 bg-secondary">
+    <div className="container mx-auto px-6">
+      <div className="flex flex-col lg:flex-row items-center gap-16">
 
-  useEffect(() => {
-    if (tiltRef.current) {
-      VanillaTilt.init(tiltRef.current, {
-        max: 15,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.5,
-      });
-    }
-  }, []);
-
-  return (
-    <section id="about" className="py-20 bg-secondary">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row items-center gap-12">
-          {/* Profile Image */}
-          <div className="lg:w-1/3">
-            <div ref={tiltRef} className="relative transform-gpu transition-all duration-500 hover:scale-105">
-              <div className="w-64 h-64 rounded-full overflow-hidden border-4 border-primary/20 glass">
-                <img
-                  src="/lovable-uploads/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
-                  alt="D. Karthik Reddy"
-                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent rounded-full"></div>
+        {/* Profile photo */}
+        <div className="lg:w-1/3 flex justify-center" data-reveal>
+          <div className="relative">
+            <div className="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-[1.03]">
+              <img
+                src="/lovable-uploads/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
+                alt="D. Karthik Reddy"
+                className="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
+            <div
+              className="absolute -inset-4 rounded-2xl -z-10 opacity-30"
+              style={{ background: "radial-gradient(ellipse, rgba(129,140,248,0.4), transparent 70%)" }}
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
+        {/* Content */}
+        <div className="lg:w-2/3 space-y-6">
+          <p className="text-xs font-semibold text-primary uppercase tracking-widest" data-reveal>
+            About
+          </p>
+          <h2
+            className="text-3xl md:text-4xl font-black text-white leading-tight"
+            data-reveal
+            data-delay="1"
+          >
+            Building software that<br className="hidden md:block" /> works in the real world.
+          </h2>
+
+          <p
+            className="text-gray-400 leading-relaxed text-base max-w-xl"
+            data-reveal
+            data-delay="2"
+          >
+            Final-year B.Tech Electronics &amp; Communication Engineering graduate (May 2026,
+            CGPA&nbsp;8.97) with a Minor in AI&nbsp;&amp;&nbsp;ML (CGPA&nbsp;8.5) from VNR Vignana
+            Jyothi Institute of Engineering &amp; Technology, Hyderabad. I focus on building
+            reliable, scalable, maintainable software — two of my AI applications are live and
+            publicly accessible right now. IEEE-published author, patent co-inventor, and national
+            winner of Smart India Hackathon&nbsp;2023 (Ministry of Defence, 1M+ participants).
+          </p>
+
+          <div className="pt-2" data-reveal data-delay="3">
+            <ResumeModal />
           </div>
 
-          {/* Content */}
-          <div className="lg:w-2/3 space-y-6">
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">About Me</h2>
-            <p className="text-gray-300 leading-relaxed">
-              I am an Electronics and Communication Engineering student at VNRVJIET with a passion for AI, 
-              full-stack development, and embedded systems. I have worked on deepfake detection, drone-based sensing, 
-              and AI-driven monitoring systems. I love solving real-world problems using a blend of software and 
-              hardware technologies.
-            </p>
-
-            {/* Resume Preview */}
-            <div className="mt-6">
-              <ResumeModal />
+          {/* Credential cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4" data-reveal data-delay="4">
+            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
+              <Award className="text-primary" size={20} aria-hidden="true" />
+              <h3 className="font-semibold text-sm text-white">Achievements</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                SIH 2023 National Winner · IEEE ICIIP 2025 Lead Author · Patent Co-Inventor
+              </p>
             </div>
 
-            {/* Achievements */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8">
-              <div className="glass p-6 rounded-xl space-y-3">
-                <Award className="text-primary" size={24} />
-                <h3 className="font-heading font-semibold">Achievements</h3>
-                <p className="text-sm text-gray-400">Winner of Smart India Hackathon 2023 (Ministry of Defence)</p>
-              </div>
+            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
+              <Book className="text-primary" size={20} aria-hidden="true" />
+              <h3 className="font-semibold text-sm text-white">Education</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                B.Tech ECE, CGPA 8.97 · Minor in AI &amp; ML (CGPA 8.5)
+                <br />
+                VNRVJIET, Hyderabad · 2022 – May 2026
+              </p>
+            </div>
 
-              <div className="glass p-6 rounded-xl space-y-3">
-                <Book className="text-primary" size={24} />
-                <h3 className="font-heading font-semibold">Education</h3>
-                <p className="text-sm text-gray-400">B.Tech in Electronics and Communication (CGPA: 9.00/10.0)</p>
-              </div>
-
-              <div className="glass p-6 rounded-xl space-y-3">
-                <UserCircle2 className="text-primary" size={24} />
-                <h3 className="font-heading font-semibold">Interests</h3>
-                <p className="text-sm text-gray-400">Cricket, Badminton & Cycling enthusiast</p>
-              </div>
+            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
+              <FileText className="text-primary" size={20} aria-hidden="true" />
+              <h3 className="font-semibold text-sm text-white">Research &amp; IP</h3>
+              <p className="text-xs text-gray-500 leading-relaxed">
+                IEEE ICIIP 2025 — 97.75% GI classification accuracy.
+                Patent: AI acoustic rail defect detection (Indian Patent Office).
+              </p>
             </div>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default About;

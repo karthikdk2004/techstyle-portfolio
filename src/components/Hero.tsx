@@ -1,141 +1,104 @@
 
 import { ArrowDown } from "lucide-react";
-import { useEffect, useState } from "react";
-import Typewriter from "typewriter-effect";
-import { tsParticles } from "tsparticles-engine";
-import { loadSlim } from "tsparticles-slim";
 
-const Hero = () => {
-  const [greeting, setGreeting] = useState("");
+const STATS = [
+  { number: "1st", label: "SIH 2023", sub: "Ministry of Defence · 1M+ teams" },
+  { number: "97.75%", label: "IEEE ICIIP 2025", sub: "GI disease classification" },
+  { number: "2", label: "Live AI apps", sub: "Deployed & publicly accessible" },
+  { number: "8.3s", label: "Real codebase reviewed", sub: "Facebook React · 31k★" },
+];
 
-  useEffect(() => {
-    const getGreeting = () => {
-      const hour = new Date().getHours();
-      if (hour >= 5 && hour < 12) {
-        return "Good Morning! Welcome to my portfolio ☀️";
-      } else if (hour >= 12 && hour < 17) {
-        return "Good Afternoon! Welcome to my portfolio 🌅";
-      } else if (hour >= 17 && hour < 22) {
-        return "Good Evening! Let's build something amazing 🌙";
-      } else {
-        return "Hello! Thanks for visiting my portfolio ✨";
-      }
-    };
+const Hero = () => (
+  <section
+    id="home"
+    className="min-h-screen flex items-center justify-center relative bg-black overflow-hidden"
+    aria-label="Introduction"
+  >
+    {/* Dot-grid background — CSS only, zero JS cost */}
+    <div className="absolute inset-0 dot-grid opacity-30" aria-hidden="true" />
 
-    setGreeting(getGreeting());
-  }, []);
+    {/* Radial glow from top */}
+    <div
+      className="absolute inset-0"
+      style={{
+        background:
+          "radial-gradient(ellipse 80% 55% at 50% -10%, rgba(129,140,248,0.18), transparent)",
+      }}
+      aria-hidden="true"
+    />
 
-  useEffect(() => {
-    const initParticles = async () => {
-      await loadSlim(tsParticles);
-      
-      await tsParticles.load("tsparticles", {
-        particles: {
-          number: {
-            value: 80,
-            density: {
-              enable: true,
-              value_area: 800
-            }
-          },
-          color: {
-            value: "#FF5722"
-          },
-          links: {
-            enable: true,
-            distance: 150,
-            color: "#FF5722",
-            opacity: 0.2,
-            width: 1
-          },
-          move: {
-            enable: true,
-            speed: 2,
-            direction: "none",
-            random: false,
-            straight: false,
-            outModes: {
-              default: "out"
-            },
-            bounce: false,
-          }
-        },
-        interactivity: {
-          events: {
-            onHover: {
-              enable: true,
-              mode: "repulse"
-            },
-            resize: true
-          }
-        },
-        detectRetina: true
-      });
-    };
+    <div className="container mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-4xl mx-auto text-center space-y-8">
 
-    initParticles();
-  }, []);
+        {/* Available signal */}
+        <div className="flex items-center justify-center gap-2 text-sm text-gray-400">
+          <span
+            className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"
+            aria-hidden="true"
+          />
+          Available for AI/ML and software engineering roles
+        </div>
 
-  return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative bg-gradient-to-b from-black to-secondary overflow-hidden">
-      <div id="tsparticles" className="absolute inset-0 z-0"></div>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/10 via-transparent to-transparent"></div>
-      
-      <div className="container mx-auto px-6 py-12 relative z-10">
-        <div className="text-center space-y-6 animate-fade-up max-w-4xl mx-auto">
-          <div className="inline-block px-4 py-1.5 bg-primary/10 rounded-full mb-6 neon-border">
-            <span className="text-primary font-medium">Full-Stack Developer & AI/ML Researcher</span>
-          </div>
-          
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading font-bold text-white">
-            D. Karthik Reddy
-          </h1>
+        {/* Role label */}
+        <p className="text-xs font-semibold text-primary uppercase tracking-[0.25em]">
+          AI / ML Engineer · Full-Stack Developer
+        </p>
 
-          {/* Time-based Greeting */}
-          <p className="text-xl text-white/90 animate-fade-up">{greeting}</p>
-          
-          <div className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto h-20">
-            <Typewriter
-              options={{
-                strings: [
-                  "Building AI-powered applications",
-                  "Creating scalable web solutions",
-                  "Developing embedded systems",
-                  "Transforming ideas into reality"
-                ],
-                autoStart: true,
-                loop: true,
-                delay: 50,
-                deleteSpeed: 30
-              }}
-            />
-          </div>
-          
-          <div className="flex justify-center gap-4 mt-8">
-            <a
-              href="#projects"
-              className="px-8 py-3 bg-primary text-white rounded-lg hover-glow font-medium"
+        {/* Name */}
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white tracking-tight leading-none">
+          D. Karthik Reddy
+        </h1>
+
+        {/* Single declarative value prop */}
+        <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed">
+          I build AI systems that ship — deployed, peer-reviewed, and already live.
+          <br className="hidden md:block" />
+          SIH 2023 national winner. IEEE-published. Patent co-inventor.
+        </p>
+
+        {/* CTA buttons */}
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="#projects"
+            className="px-8 py-3 bg-primary text-white rounded-lg font-semibold hover:bg-primary/90 transition-colors hover-glow"
+          >
+            View my work
+          </a>
+          <a
+            href="#contact"
+            className="px-8 py-3 bg-white/5 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors border border-white/10"
+          >
+            Get in touch
+          </a>
+        </div>
+
+        {/* Stats row */}
+        <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 rounded-2xl overflow-hidden border border-white/10">
+          {STATS.map((stat, i) => (
+            <div
+              key={i}
+              className="bg-black/70 px-4 py-6 text-center hover:bg-white/5 transition-colors duration-300 group"
             >
-              View My Work
-            </a>
-            <a
-              href="#contact"
-              className="px-8 py-3 bg-white/10 text-white rounded-lg hover:bg-white/20 transition-colors font-medium neon-border"
-            >
-              Get in Touch
-            </a>
-          </div>
+              <div className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors duration-300">
+                {stat.number}
+              </div>
+              <div className="mt-1 text-xs font-semibold text-primary">{stat.label}</div>
+              <div className="mt-0.5 text-xs text-gray-600 leading-snug">{stat.sub}</div>
+            </div>
+          ))}
         </div>
       </div>
+    </div>
 
-      <a
-        href="#about"
-        className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/50 hover:text-white transition-colors animate-float z-10"
-      >
-        <ArrowDown size={24} />
-      </a>
-    </section>
-  );
-};
+    {/* Scroll indicator */}
+    <a
+      href="#about"
+      className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/30 hover:text-white/70 transition-colors animate-float z-10"
+      aria-label="Scroll to About"
+    >
+      <ArrowDown size={20} />
+    </a>
+  </section>
+);
 
 export default Hero;
