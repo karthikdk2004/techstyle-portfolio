@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: [Karthik's Portfolio](https://karthik-portfolio-orcin.vercel.app/)
+**URL**: [Karthik's Portfolio](https://karthikreddy-techstyle-portfolio.vercel.app/)
 
 ## How can I edit this code?
 
