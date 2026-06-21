@@ -87,7 +87,7 @@ const Contact = () => {
             </h2>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-md" data-reveal data-delay="2">
-              Open to AI/ML engineering, software development, and data science roles — India, entry-level.
+              Open to Software Development Engineer, AI Engineer, Data Analyst, and Data Scientist roles — India, entry-level.
               Also happy to chat about projects, collaborations, or research.
             </p>
 
@@ -230,7 +230,7 @@ const Contact = () => {
                     Roles
                   </p>
                   <p className="text-gray-300 leading-relaxed">
-                    AI/ML Engineer · Backend Developer · Data Scientist
+                    Software Development Engineer · AI Engineer · Data Analyst · Data Scientist
                   </p>
                 </div>
                 <div>

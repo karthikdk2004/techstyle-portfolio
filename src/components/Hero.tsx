@@ -41,12 +41,12 @@ const Hero = () => (
             className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"
             aria-hidden="true"
           />
-          Available for AI/ML and software engineering roles
+          Available for SDE, AI Engineer, Data Analyst &amp; Data Scientist roles
         </div>
 
         {/* Role label */}
         <p className="font-mono text-xs text-primary/70 tracking-wide">
-          ai / ml engineer · full-stack developer
+          sde · ai engineer · data analyst · data scientist
         </p>
 
         {/* Name */}

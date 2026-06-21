@@ -108,7 +108,7 @@ const WhyHireMe = () => (
       <section className="py-20 container mx-auto px-6 max-w-3xl text-center space-y-6">
         <h2 className="text-2xl font-black text-white">Ready to work together?</h2>
         <p className="text-gray-400">
-          Open to AI/ML, software engineering, and data science roles.
+          Open to Software Development Engineer, AI Engineer, Data Analyst, and Data Scientist roles.
         </p>
         <div className="flex flex-wrap justify-center gap-4">
           <a
