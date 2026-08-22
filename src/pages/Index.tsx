@@ -59,10 +59,10 @@ const Achievements = () => (
   >
     <div className="container mx-auto px-6">
       <p
-        className="text-center font-mono text-xs text-primary/70 mb-14"
+        className="text-center text-xs text-gray-600 uppercase tracking-widest mb-14"
         data-reveal
       >
-        // metrics
+        What I've accomplished
       </p>
 
       <div
@@ -75,7 +75,7 @@ const Achievements = () => (
             key={i}
             className="bg-black/80 px-6 py-10 text-center hover:bg-white/[0.04] transition-colors duration-300 group"
           >
-            <div className={`text-4xl md:text-5xl lg:text-6xl font-black mb-3 group-hover:text-primary transition-colors duration-300 leading-none ${s.highlight ? "text-amber-400" : "text-white"}`}>
+            <div className={`text-4xl md:text-5xl lg:text-6xl font-black mb-3 group-hover:text-primary transition-colors duration-300 leading-none ${s.highlight ? "text-amber-400" : i === 1 ? "text-emerald-400" : "text-white"}`}>
               {s.number}
             </div>
             <div className="text-sm font-semibold text-primary mb-1.5">{s.label}</div>
@@ -106,11 +106,9 @@ const Index = () => {
     <main id="main-content" className="bg-black text-white min-h-screen">
       <Navigation />
       <Hero />
-      <SectionDivider />
       <About />
       <SectionDivider />
       <Skills />
-      <SectionDivider />
       <Projects />
       <Achievements />
       <SectionDivider />

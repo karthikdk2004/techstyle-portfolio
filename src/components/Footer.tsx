@@ -5,7 +5,7 @@ const Footer = () => (
   <footer className="py-8 bg-black border-t border-white/5">
     <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
       <p className="text-xs text-gray-400">
-        © 2026 D. Karthik Reddy · Designed &amp; built by hand
+        © 2026 D. Karthik Reddy · Built by Karthik
       </p>
       <div className="flex items-center gap-5">
         <a

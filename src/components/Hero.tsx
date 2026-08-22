@@ -35,18 +35,9 @@ const Hero = () => (
     <div className="container mx-auto px-6 py-20 relative z-10">
       <div className="max-w-4xl mx-auto space-y-8">
 
-        {/* Available signal */}
-        <div className="flex items-center gap-2 text-sm text-gray-400">
-          <span
-            className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot"
-            aria-hidden="true"
-          />
-          Available for SDE, AI Engineer, Data Analyst &amp; Data Scientist roles
-        </div>
-
-        {/* Role label */}
-        <p className="font-mono text-xs text-primary/70 tracking-wide">
-          sde · ai engineer · data analyst · data scientist
+        {/* Tagline */}
+        <p className="text-sm text-gray-500 tracking-wide">
+          Software Engineer · AI Engineer · Data Scientist
         </p>
 
         {/* Name */}
@@ -67,27 +58,31 @@ const Hero = () => (
             href="#projects"
             className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-colors hover-glow"
           >
-            View my work
+            See what I've built
           </a>
           <a
             href="#contact"
             className="px-8 py-3 bg-white/5 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors border border-white/10"
           >
-            Get in touch
+            Say hello
           </a>
         </div>
 
         {/* Stats row */}
-        <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/8 rounded-2xl overflow-hidden border border-white/10">
+        <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] rounded-2xl overflow-hidden border border-white/8">
           {STATS.map((stat, i) => (
             <div
               key={i}
-              className="bg-black/70 px-4 py-6 text-center hover:bg-white/5 transition-colors duration-300 group"
+              className="bg-black/70 px-4 py-6 text-center hover:bg-white/[0.04] transition-colors duration-300 group"
             >
-              <div className="text-3xl md:text-4xl font-black text-white group-hover:text-primary transition-colors duration-300">
+              <div className={`font-black transition-colors duration-300 ${
+                i === 0
+                  ? "text-4xl md:text-5xl text-amber-400 group-hover:text-amber-300"
+                  : "text-3xl md:text-4xl text-white group-hover:text-primary"
+              }`}>
                 {stat.number}
               </div>
-              <div className="mt-1 text-xs font-semibold text-primary">{stat.label}</div>
+              <div className={`mt-1 text-xs font-semibold ${i === 0 ? 'text-amber-400/70' : 'text-primary'}`}>{stat.label}</div>
               <div className="mt-0.5 text-xs text-gray-600 leading-snug">{stat.sub}</div>
             </div>
           ))}

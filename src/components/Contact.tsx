@@ -78,12 +78,10 @@ const Contact = () => {
 
           {/* Left column — contact */}
           <div className="lg:col-span-3 space-y-0">
-            <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
-              04.
-            </p>
+
 
             <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
-              Let's work together.
+              I'd love to hear from you.
             </h2>
 
             <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-md" data-reveal data-delay="2">

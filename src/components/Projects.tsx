@@ -1,5 +1,5 @@
 
-import { ExternalLink, Terminal, Microscope, Radar, AudioLines } from "lucide-react";
+import { ExternalLink, Terminal } from "lucide-react";
 import { useState, useEffect, useRef } from "react";
 import type { LucideIcon } from "lucide-react";
 
@@ -133,12 +133,7 @@ const SECONDARY: Project[] = [
   },
 ];
 
-/* Decorative icons for secondary cards — indexed to match SECONDARY order */
-const SECONDARY_ICONS: { Icon: LucideIcon; className: string }[] = [
-  { Icon: Microscope, className: "text-blue-400/30" },
-  { Icon: Radar,      className: "text-yellow-400/30" },
-  { Icon: AudioLines, className: "text-purple-400/30" },
-];
+
 
 /* ─── Stateful terminal pane with typewriter replay ─── */
 const TerminalPane = ({ lines, liveUrl }: { lines: string[]; liveUrl: string }) => {
@@ -382,9 +377,7 @@ const Projects = () => (
     <div className="aurora-blob aurora-blob-subtle absolute w-[350px] h-[350px] bg-cyan-500 bottom-16 -left-24" aria-hidden="true" style={{ animationDelay: '11s' }} />
 
     <div className="container mx-auto px-6 relative z-10">
-      <p className="font-mono text-xs text-primary/70 mb-3" data-reveal>
-        03.
-      </p>
+      
       <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
         Featured projects
       </h2>
@@ -406,7 +399,6 @@ const Projects = () => (
             key={p.title}
             project={p}
             delay={String(i + 1)}
-            decorativeIcon={SECONDARY_ICONS[i]}
           />
         ))}
       </div>

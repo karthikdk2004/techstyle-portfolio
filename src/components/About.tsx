@@ -33,15 +33,13 @@ const About = () => (
 
         {/* Content */}
         <div className="lg:w-2/3 space-y-6">
-          <p className="font-mono text-xs text-primary/70" data-reveal>
-            01.
-          </p>
+
           <h2
             className="text-3xl md:text-4xl font-heading font-bold text-white leading-tight"
             data-reveal
             data-delay="1"
           >
-            Building software that<br className="hidden md:block" /> works in the real world.
+            I build things that work<br className="hidden md:block" /> — and actually ship.
           </h2>
 
           <p
@@ -63,8 +61,8 @@ const About = () => (
 
           {/* Credential cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4" data-reveal data-delay="4">
-            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
-              <Award className="text-primary" size={20} aria-hidden="true" />
+            <div className="glass p-5 rounded-xl space-y-2 border-amber-500/20 hover:border-amber-500/40 transition-colors duration-300">
+              <Award className="text-amber-400" size={20} aria-hidden="true" />
               <h3 className="font-heading font-semibold text-sm text-white">Achievements</h3>
               <p className="text-xs text-gray-500 leading-relaxed">
                 SIH 2023 National Winner · IEEE ICIIP 2025 Lead Author · Patent Co-Inventor
