@@ -92,7 +92,7 @@ const Skills = () => (
 
 
       <h2
-        className="text-3xl md:text-4xl font-heading font-bold text-white mb-16"
+        className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-14"
         data-reveal
         data-delay="1"
       >

@@ -35,7 +35,7 @@ const About = () => (
         <div className="lg:w-2/3 space-y-6">
 
           <h2
-            className="text-3xl md:text-4xl font-heading font-bold text-white leading-tight"
+            className="text-3xl md:text-5xl font-heading font-bold text-white leading-tight tracking-tight"
             data-reveal
             data-delay="1"
           >
@@ -43,7 +43,7 @@ const About = () => (
           </h2>
 
           <p
-            className="text-gray-400 leading-relaxed text-base max-w-xl"
+            className="text-gray-300 leading-relaxed text-base md:text-lg max-w-xl"
             data-reveal
             data-delay="2"
           >
@@ -61,29 +61,29 @@ const About = () => (
 
           {/* Credential cards — asymmetric grid */}
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-4" data-reveal data-delay="4">
-            <div className="sm:col-span-2 glass p-5 rounded-xl space-y-2 border-amber-500/25 bg-amber-500/[0.02] hover:border-amber-500/40 transition-colors duration-300">
+            <div className="sm:col-span-2 glass p-5 rounded-xl space-y-2 border-amber-500/30 bg-amber-500/[0.03] hover:border-amber-500/50 transition-all duration-300">
               <Award className="text-amber-400" size={20} aria-hidden="true" />
               <h3 className="font-heading font-semibold text-sm text-white">Achievements</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">
+              <p className="text-xs text-gray-300 leading-relaxed">
                 SIH 2023 National Winner · IEEE ICIIP 2025 Lead Author · Patent Co-Inventor
               </p>
             </div>
 
             <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
-              <div className="glass p-4 rounded-xl space-y-1.5 hover:border-white/20 transition-colors duration-300">
+              <div className="glass p-4 rounded-xl space-y-1.5 border-white/10 hover:border-indigo-400/40 hover:bg-indigo-500/[0.03] transition-all duration-300">
                 <Book className="text-indigo-400" size={18} aria-hidden="true" />
                 <h3 className="font-heading font-semibold text-xs text-white">Education</h3>
-                <p className="text-[11px] text-gray-500 leading-relaxed">
-                  B.Tech ECE (8.97) · Minor in AI &amp; ML (8.5)
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  B.Tech ECE (CGPA 8.97) · Minor in AI &amp; ML (8.5)
                   <br />
                   VNRVJIET · 2022 – May 2026
                 </p>
               </div>
 
-              <div className="glass p-4 rounded-xl space-y-1.5 hover:border-white/20 transition-colors duration-300">
+              <div className="glass p-4 rounded-xl space-y-1.5 border-white/10 hover:border-cyan-400/40 hover:bg-cyan-500/[0.03] transition-all duration-300">
                 <FileText className="text-cyan-400" size={18} aria-hidden="true" />
                 <h3 className="font-heading font-semibold text-xs text-white">Research &amp; IP</h3>
-                <p className="text-[11px] text-gray-500 leading-relaxed">
+                <p className="text-xs text-gray-400 leading-relaxed">
                   IEEE ICIIP 2025 (97.75% acc)
                   <br />
                   Patent: Acoustic rail defect detection

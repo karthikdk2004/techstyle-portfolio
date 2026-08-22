@@ -80,11 +80,11 @@ const Contact = () => {
           <div className="lg:col-span-3 space-y-0">
 
 
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
+            <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-4" data-reveal data-delay="1">
               I'd love to hear from you.
             </h2>
 
-            <p className="text-gray-400 text-sm leading-relaxed mb-10 max-w-md" data-reveal data-delay="2">
+            <p className="text-gray-300 text-sm md:text-base leading-relaxed mb-10 max-w-md" data-reveal data-delay="2">
               Open to Software Development Engineer, AI Engineer, Data Analyst, and Data Scientist roles — India, entry-level.
               Also happy to chat about projects, collaborations, or research.
             </p>
@@ -93,13 +93,13 @@ const Contact = () => {
             <div data-reveal data-delay="3">
               <a
                 href="mailto:karthikreddy1420@gmail.com"
-                className="group inline-flex items-center gap-3 text-xl md:text-2xl font-black text-white hover:text-primary transition-colors duration-200"
+                className="group inline-flex items-center gap-3 text-xl md:text-2xl font-extrabold text-white hover:text-indigo-300 transition-colors duration-200"
               >
-                <Mail size={24} className="text-primary shrink-0" aria-hidden="true" />
+                <Mail size={24} className="text-indigo-400 shrink-0 group-hover:scale-110 transition-transform" aria-hidden="true" />
                 karthikreddy1420@gmail.com
                 <ArrowRight
-                  size={18}
-                  className="text-primary opacity-0 -translate-x-1 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
+                  size={20}
+                  className="text-indigo-400 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200"
                   aria-hidden="true"
                 />
               </a>

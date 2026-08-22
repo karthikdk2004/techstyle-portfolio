@@ -36,18 +36,18 @@ const Hero = () => (
       <div className="max-w-4xl mx-auto space-y-8">
 
         {/* Tagline */}
-        <p className="text-sm text-gray-500 tracking-wide">
+        <p className="text-sm md:text-base font-medium text-gray-400 tracking-wide">
           Software Engineer · AI Engineer · Data Scientist
         </p>
 
         {/* Name */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading tracking-tight leading-none">
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading tracking-tight leading-none">
           <span className="font-extrabold text-white">D. Karthik</span>{" "}
           <span className="font-light text-gray-300">Reddy</span>
         </h1>
 
         {/* Single declarative value prop */}
-        <p className="text-lg md:text-xl text-gray-400 max-w-2xl leading-relaxed">
+        <p className="text-lg md:text-xl text-gray-300 max-w-2xl leading-relaxed">
           I build AI systems that ship — deployed, peer-reviewed, and already live.
           <br className="hidden md:block" />
           SIH 2023 national winner. IEEE-published. Patent co-inventor.
@@ -57,13 +57,13 @@ const Hero = () => (
         <div className="flex flex-wrap gap-4">
           <a
             href="#projects"
-            className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white rounded-lg font-semibold transition-colors hover-glow"
+            className="px-8 py-3.5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-xl font-semibold transition-all hover:scale-[1.02] shadow-[0_0_20px_rgba(99,102,241,0.3)] hover:shadow-[0_0_25px_rgba(99,102,241,0.5)]"
           >
             See what I've built
           </a>
           <a
             href="#contact"
-            className="px-8 py-3 bg-white/5 text-white rounded-lg font-semibold hover:bg-white/10 transition-colors border border-white/10"
+            className="px-8 py-3.5 bg-white/5 text-white rounded-xl font-semibold hover:bg-white/10 transition-all border border-white/15 hover:border-white/30"
           >
             Say hello
           </a>
@@ -72,28 +72,28 @@ const Hero = () => (
         {/* Asymmetric Stats Row */}
         <div className="pt-4 grid grid-cols-1 md:grid-cols-5 gap-3">
           {/* Featured Stat Card */}
-          <div className="md:col-span-2 glass p-5 rounded-xl border border-amber-500/25 bg-amber-500/[0.03] flex flex-col justify-center items-center text-center">
+          <div className="md:col-span-2 glass p-5 rounded-xl border border-amber-500/30 bg-amber-500/[0.04] flex flex-col justify-center items-center text-center shadow-[0_0_20px_rgba(245,158,11,0.08)]">
             <div className="text-4xl md:text-5xl font-black text-amber-400 leading-none mb-1">
               {STATS[0].number}
             </div>
             <div className="text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">
               {STATS[0].label}
             </div>
-            <div className="text-xs text-gray-400">{STATS[0].sub}</div>
+            <div className="text-xs text-gray-300">{STATS[0].sub}</div>
           </div>
 
           {/* Secondary Stat Grid */}
-          <div className="md:col-span-3 grid grid-cols-3 gap-px bg-white/[0.04] rounded-xl overflow-hidden border border-white/8">
+          <div className="md:col-span-3 grid grid-cols-3 gap-3">
             {STATS.slice(1).map((stat, i) => (
               <div
                 key={i}
-                className="bg-black/70 p-4 text-center hover:bg-white/[0.04] transition-colors duration-300 flex flex-col justify-center items-center"
+                className="glass p-4 rounded-xl text-center border border-white/10 hover:border-indigo-500/30 hover:bg-indigo-500/[0.03] transition-all duration-300 flex flex-col justify-center items-center group"
               >
-                <div className="text-2xl md:text-3xl font-black text-white mb-1">
+                <div className="text-2xl md:text-3xl font-black text-white group-hover:text-indigo-300 transition-colors mb-1">
                   {stat.number}
                 </div>
-                <div className="text-xs font-semibold text-primary">{stat.label}</div>
-                <div className="mt-0.5 text-[11px] text-gray-500 leading-snug">{stat.sub}</div>
+                <div className="text-xs font-semibold text-indigo-300">{stat.label}</div>
+                <div className="mt-0.5 text-xs text-gray-400 leading-snug">{stat.sub}</div>
               </div>
             ))}
           </div>

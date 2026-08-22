@@ -378,10 +378,10 @@ const Projects = () => (
 
     <div className="container mx-auto px-6 relative z-10">
       
-      <h2 className="text-3xl md:text-4xl font-heading font-bold text-white mb-4" data-reveal data-delay="1">
+      <h2 className="text-3xl md:text-5xl font-heading font-bold text-white tracking-tight mb-4" data-reveal data-delay="1">
         Featured projects
       </h2>
-      <p className="text-gray-500 mb-16 max-w-xl text-sm leading-relaxed" data-reveal data-delay="2">
+      <p className="text-gray-300 mb-14 max-w-xl text-sm md:text-base leading-relaxed" data-reveal data-delay="2">
         Two live AI applications you can open right now, IEEE-published research, a national
         hackathon win, and a filed patent — each built end-to-end with a clear problem and
         measurable outcome.
