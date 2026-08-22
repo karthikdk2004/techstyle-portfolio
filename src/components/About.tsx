@@ -14,7 +14,7 @@ const About = () => (
               <picture>
                 <source srcSet="/images/profile.webp" type="image/webp" />
                 <img
-                  src="/images/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
+                  src="/images/profile.jpg"
                   alt="D. Karthik Reddy"
                   className="w-full h-full object-cover"
                   loading="lazy"
