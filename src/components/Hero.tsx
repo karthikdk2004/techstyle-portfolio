@@ -2,7 +2,7 @@
 import { ArrowDown } from "lucide-react";
 
 const STATS = [
-  { number: "8.3s", label: "PR reviewed", sub: "React · 246k★ · 247 files" },
+  { number: "8.3s", label: "PR reviewed", sub: "React · 31k★ · 247 files" },
   { number: "<10s", label: "Email drafted", sub: "Context → draft → approval" },
   { number: "16", label: "Prod fixes", sub: "Committed · documented in Git" },
   { number: "7", label: "REST endpoints", sub: "Email agent API surface" },

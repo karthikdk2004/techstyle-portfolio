@@ -12,9 +12,9 @@ const About = () => (
           <div className="relative">
             <div className="w-56 h-56 md:w-64 md:h-64 rounded-2xl overflow-hidden border border-white/10 transition-transform duration-500 hover:scale-[1.03]">
               <picture>
-                <source srcSet="/lovable-uploads/profile.webp" type="image/webp" />
+                <source srcSet="/images/profile.webp" type="image/webp" />
                 <img
-                  src="/lovable-uploads/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
+                  src="/images/186269f6-e5db-4723-a35f-5e9e55246ca3.png"
                   alt="D. Karthik Reddy"
                   className="w-full h-full object-cover"
                   loading="lazy"

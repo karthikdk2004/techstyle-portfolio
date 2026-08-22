@@ -22,14 +22,14 @@ const FEATURED: Project[] = [
     description:
       "Most code review tools surface lint warnings. I wanted one that reads a PR like a senior engineer — understanding context, spotting logic issues, explaining the why behind every comment.",
     result:
-      "Analysed the React repo (246k★) in 8.3 seconds. 16 production fixes committed with documented Git history.",
-    techStack: ["Python", "FastAPI", "React", "REST APIs", "Git", "Unit Testing", "Agile"],
-    year: "2025",
+      "Analyzed the React repo (31k★) in 8.3 seconds. 16 production fixes committed with documented Git history.",
+    techStack: ["Python", "FastAPI", "React", "REST APIs", "Git", "CI/CD", "Unit Testing"],
+    year: "2026",
     badge: "LIVE",
     badgeClass: "bg-green-500/15 text-green-400 border border-green-500/25",
     liveUrl: "https://ai-pr-reviewer-eta.vercel.app",
     metrics: [
-      "8.3 s — React (246k★) reviewed end-to-end",
+      "8.3 s — React (31k★) reviewed end-to-end",
       "16 production fixes · documented Git history",
       "Requirements → Vercel deployment, zero manual infra",
     ],
@@ -54,7 +54,7 @@ const FEATURED: Project[] = [
     result:
       "7 REST endpoints, under 10 s end-to-end, full OOP architecture with persistent state and audit logging.",
     techStack: ["Python", "FastAPI", "React", "REST APIs", "SQL", "Git", "Unit Testing"],
-    year: "2025",
+    year: "2026",
     badge: "LIVE",
     badgeClass: "bg-green-500/15 text-green-400 border border-green-500/25",
     liveUrl: "https://ai-email-agent-alpha.vercel.app",
