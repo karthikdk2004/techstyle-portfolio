@@ -36,12 +36,16 @@ const ResumeModal = () => {
                 <Mail size={12} /> karthikreddy1420@gmail.com
               </a>
               <span>•</span>
-              <a href="https://linkedin.com/in/karthik-reddy" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
-                <Linkedin size={12} /> linkedin.com/in/karthik-reddy
+              <a href="https://www.linkedin.com/in/karthik-reddy-devireddy-ab6927260/" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
+                <Linkedin size={12} /> linkedin.com/in/karthik-reddy-devireddy
               </a>
               <span>•</span>
               <a href="https://github.com/karthikdk2004" target="_blank" rel="noreferrer" className="flex items-center gap-1 hover:text-primary transition-colors">
                 <Github size={12} /> github.com/karthikdk2004
+              </a>
+              <span>•</span>
+              <a href="/" className="flex items-center gap-1 hover:text-primary transition-colors">
+                <ExternalLink size={12} /> Portfolio
               </a>
             </div>
           </div>
