@@ -16,7 +16,7 @@ const About = () => (
                 <img
                   src="/images/profile.jpg"
                   alt="D. Karthik Reddy"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover object-top"
                   loading="lazy"
                   width="256"
                   height="256"
