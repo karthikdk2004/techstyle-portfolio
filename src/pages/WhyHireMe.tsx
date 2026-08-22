@@ -27,11 +27,12 @@ const CREDENTIALS = [
 ];
 
 const SKILLS = [
-  { area: "Languages", items: "Python · C · C++ · JavaScript · SQL" },
+  { area: "Languages", items: "Python · C · C++ · JavaScript · SQL · HTML · CSS" },
+  { area: "Computer Science", items: "Data Structures & Algorithms (183 LeetCode) · Object-Oriented Design (OOP) · Complexity Analysis · Algorithm Design · System Design" },
+  { area: "Web & Development", items: "React · FastAPI · Node.js · REST APIs · PostgreSQL · OAuth 2.0" },
+  { area: "Tools & Practices", items: "Git & GitHub · CI/CD (GitHub Actions) · Unit Testing · Code Review · SDLC · Agile" },
+  { area: "Core CS", items: "Operating Systems (OS) · DBMS · Computer Networks · Distributed Systems fundamentals" },
   { area: "AI / ML", items: "PyTorch · TensorFlow · LangGraph · LangChain · Scikit-learn · Computer Vision" },
-  { area: "Web & Backend", items: "FastAPI · React · Node.js · PostgreSQL · OAuth 2.0 · REST APIs" },
-  { area: "Engineering", items: "SDLC · Agile · Unit Testing · Debugging · Code Reviews · Git" },
-  { area: "CS Fundamentals", items: "DSA (183 LeetCode) · OOP · OS · DBMS · Computer Networks · Distributed Systems" },
 ];
 
 const WhyHireMe = () => (

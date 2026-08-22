@@ -1,5 +1,5 @@
 
-import { Code2, Brain, Settings, Globe, Cpu } from "lucide-react";
+import { Code2, Brain, Settings, Globe, Cpu, Layers } from "lucide-react";
 import type { LucideIcon } from "lucide-react";
 
 interface Category {
@@ -19,43 +19,6 @@ const CATEGORIES: Category[] = [
     colSpan: 2,
   },
   {
-    label: "CS Fundamentals",
-    skills: [
-      "DSA · 183 LeetCode",
-      "OOP",
-      "Complexity Analysis",
-      "OS",
-      "DBMS",
-      "Computer Networks",
-      "Distributed Systems",
-    ],
-    highlight: false,
-    icon: Brain,
-    colSpan: 1,
-  },
-  {
-    label: "Software Eng.",
-    skills: [
-      "SDLC & Agile",
-      "Unit / Functional Testing",
-      "Debugging",
-      "Code Reviews",
-      "REST APIs",
-      "Git / GitHub",
-      "System Design",
-    ],
-    highlight: false,
-    icon: Settings,
-    colSpan: 1,
-  },
-  {
-    label: "Web & Backend",
-    skills: ["React", "FastAPI", "Node.js", "PostgreSQL", "OAuth 2.0", "Vercel"],
-    highlight: false,
-    icon: Globe,
-    colSpan: 2,
-  },
-  {
     label: "AI / ML",
     skills: [
       "PyTorch",
@@ -67,7 +30,52 @@ const CATEGORIES: Category[] = [
     ],
     highlight: true,
     icon: Cpu,
-    colSpan: 3,
+    colSpan: 1,
+  },
+  {
+    label: "Web & Development",
+    skills: ["React", "FastAPI", "Node.js", "REST APIs", "PostgreSQL", "OAuth 2.0"],
+    highlight: false,
+    icon: Globe,
+    colSpan: 1,
+  },
+  {
+    label: "Tools & Practices",
+    skills: [
+      "Git & GitHub",
+      "CI/CD (GitHub Actions)",
+      "Unit Testing",
+      "Code Review",
+      "SDLC & Agile",
+    ],
+    highlight: false,
+    icon: Settings,
+    colSpan: 2,
+  },
+  {
+    label: "Computer Science",
+    skills: [
+      "DSA (183 LeetCode)",
+      "Object-Oriented Design (OOP)",
+      "Complexity Analysis",
+      "Algorithm Design",
+      "System Design (learning)",
+    ],
+    highlight: false,
+    icon: Brain,
+    colSpan: 2,
+  },
+  {
+    label: "Core CS",
+    skills: [
+      "Operating Systems (OS)",
+      "DBMS",
+      "Computer Networks",
+      "Distributed Systems",
+    ],
+    highlight: false,
+    icon: Layers,
+    colSpan: 1,
   },
 ];
 
