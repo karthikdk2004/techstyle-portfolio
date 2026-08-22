@@ -41,8 +41,9 @@ const Hero = () => (
         </p>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-heading font-bold text-white tracking-tight leading-none">
-          D. Karthik Reddy
+        <h1 className="text-4xl md:text-6xl lg:text-7xl font-heading tracking-tight leading-none">
+          <span className="font-extrabold text-white">D. Karthik</span>{" "}
+          <span className="font-light text-gray-300">Reddy</span>
         </h1>
 
         {/* Single declarative value prop */}
@@ -68,24 +69,34 @@ const Hero = () => (
           </a>
         </div>
 
-        {/* Stats row */}
-        <div className="pt-6 grid grid-cols-2 md:grid-cols-4 gap-px bg-white/[0.04] rounded-2xl overflow-hidden border border-white/8">
-          {STATS.map((stat, i) => (
-            <div
-              key={i}
-              className="bg-black/70 px-4 py-6 text-center hover:bg-white/[0.04] transition-colors duration-300 group"
-            >
-              <div className={`font-black transition-colors duration-300 ${
-                i === 0
-                  ? "text-4xl md:text-5xl text-amber-400 group-hover:text-amber-300"
-                  : "text-3xl md:text-4xl text-white group-hover:text-primary"
-              }`}>
-                {stat.number}
-              </div>
-              <div className={`mt-1 text-xs font-semibold ${i === 0 ? 'text-amber-400/70' : 'text-primary'}`}>{stat.label}</div>
-              <div className="mt-0.5 text-xs text-gray-600 leading-snug">{stat.sub}</div>
+        {/* Asymmetric Stats Row */}
+        <div className="pt-4 grid grid-cols-1 md:grid-cols-5 gap-3">
+          {/* Featured Stat Card */}
+          <div className="md:col-span-2 glass p-5 rounded-xl border border-amber-500/25 bg-amber-500/[0.03] flex flex-col justify-center items-center text-center">
+            <div className="text-4xl md:text-5xl font-black text-amber-400 leading-none mb-1">
+              {STATS[0].number}
             </div>
-          ))}
+            <div className="text-xs font-bold text-amber-300 uppercase tracking-wider mb-1">
+              {STATS[0].label}
+            </div>
+            <div className="text-xs text-gray-400">{STATS[0].sub}</div>
+          </div>
+
+          {/* Secondary Stat Grid */}
+          <div className="md:col-span-3 grid grid-cols-3 gap-px bg-white/[0.04] rounded-xl overflow-hidden border border-white/8">
+            {STATS.slice(1).map((stat, i) => (
+              <div
+                key={i}
+                className="bg-black/70 p-4 text-center hover:bg-white/[0.04] transition-colors duration-300 flex flex-col justify-center items-center"
+              >
+                <div className="text-2xl md:text-3xl font-black text-white mb-1">
+                  {stat.number}
+                </div>
+                <div className="text-xs font-semibold text-primary">{stat.label}</div>
+                <div className="mt-0.5 text-[11px] text-gray-500 leading-snug">{stat.sub}</div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </div>

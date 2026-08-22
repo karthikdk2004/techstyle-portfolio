@@ -209,43 +209,33 @@ const Contact = () => {
 
           {/* Right column — availability card */}
           <div className="lg:col-span-2" data-reveal data-delay="2">
-            <div className="glass rounded-xl p-7 space-y-6">
+            <div className="glass rounded-xl p-6 space-y-5 border-white/10 hover:border-white/20 transition-colors">
               <div className="flex items-center gap-2.5">
-                <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse-dot shrink-0" aria-hidden="true" />
-                <span className="text-sm font-semibold text-white">Available for hire</span>
+                <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse-dot shrink-0" aria-hidden="true" />
+                <span className="text-sm font-semibold text-white">Currently Open to Opportunities</span>
               </div>
 
-              <div className="space-y-4 text-sm">
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider mb-1">
-                    Roles
-                  </p>
-                  <p className="text-gray-300 leading-relaxed">
-                    Software Development Engineer · AI Engineer · Data Analyst · Data Scientist
-                  </p>
+              <p className="text-xs text-gray-400 leading-relaxed">
+                Looking for full-time Software Engineer, AI Engineer, Data Analyst, or Data Scientist roles starting June 2026.
+              </p>
+
+              <div className="pt-2 border-t border-white/6 space-y-2.5 text-xs">
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Location</span>
+                  <span className="text-gray-300 font-medium">Hyderabad / Remote</span>
                 </div>
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider mb-1">
-                    Location
-                  </p>
-                  <p className="text-gray-300">Hyderabad, India · Open to remote</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Education</span>
+                  <span className="text-gray-300 font-medium">B.Tech ECE (CGPA 8.97)</span>
                 </div>
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider mb-1">
-                    Available from
-                  </p>
-                  <p className="text-gray-300">June 2026 · immediately available</p>
-                </div>
-                <div>
-                  <p className="text-[10px] font-semibold text-gray-600 uppercase tracking-wider mb-1">
-                    CGPA
-                  </p>
-                  <p className="text-gray-300">8.97 · Minor in AI &amp; ML (8.5)</p>
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-500">Minor</span>
+                  <span className="text-gray-300 font-medium">AI &amp; ML (CGPA 8.5)</span>
                 </div>
               </div>
 
-              <div className="pt-1">
-                <ResumeButton text="Download resume" />
+              <div className="pt-2">
+                <ResumeButton text="View &amp; Download Resume" />
               </div>
             </div>
           </div>

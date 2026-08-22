@@ -124,20 +124,31 @@ const Skills = () => (
                 </h3>
               </div>
 
-              {/* Skill pills */}
-              <div className="flex flex-wrap gap-2">
-                {cat.skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className={`px-3 py-1 rounded-full text-xs font-medium transition-colors duration-200 ${
-                      cat.highlight
-                        ? "bg-amber-500/10 text-amber-300 border border-amber-500/20 group-hover:bg-amber-500/15"
-                        : "bg-white/5 text-gray-300 border border-white/8 group-hover:border-white/15"
-                    }`}
-                  >
-                    {skill}
-                  </span>
-                ))}
+              {/* Skill pills — organic hierarchy */}
+              <div className="flex flex-wrap gap-2 items-center">
+                {cat.skills.map((skill, idx) => {
+                  const isPrimarySkill = idx < 2 || skill.includes("DSA") || skill.includes("PyTorch");
+                  return (
+                    <span
+                      key={skill}
+                      className={`rounded-lg transition-all duration-200 ${
+                        isPrimarySkill
+                          ? "px-3.5 py-1.5 text-xs font-semibold"
+                          : "px-2.5 py-1 text-[11px] font-normal"
+                      } ${
+                        cat.highlight
+                          ? isPrimarySkill
+                            ? "bg-amber-500/15 text-amber-300 border border-amber-500/30 shadow-[0_0_10px_rgba(245,158,11,0.15)]"
+                            : "bg-amber-500/8 text-amber-200/80 border border-amber-500/15"
+                          : isPrimarySkill
+                          ? "bg-white/10 text-white border border-white/15"
+                          : "bg-white/5 text-gray-400 border border-white/6"
+                      }`}
+                    >
+                      {skill}
+                    </span>
+                  );
+                })}
               </div>
             </div>
           );

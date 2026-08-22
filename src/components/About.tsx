@@ -59,33 +59,36 @@ const About = () => (
             <ResumeModal />
           </div>
 
-          {/* Credential cards */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4" data-reveal data-delay="4">
-            <div className="glass p-5 rounded-xl space-y-2 border-amber-500/20 hover:border-amber-500/40 transition-colors duration-300">
+          {/* Credential cards — asymmetric grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-5 gap-3 pt-4" data-reveal data-delay="4">
+            <div className="sm:col-span-2 glass p-5 rounded-xl space-y-2 border-amber-500/25 bg-amber-500/[0.02] hover:border-amber-500/40 transition-colors duration-300">
               <Award className="text-amber-400" size={20} aria-hidden="true" />
               <h3 className="font-heading font-semibold text-sm text-white">Achievements</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
+              <p className="text-xs text-gray-400 leading-relaxed">
                 SIH 2023 National Winner · IEEE ICIIP 2025 Lead Author · Patent Co-Inventor
               </p>
             </div>
 
-            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
-              <Book className="text-primary" size={20} aria-hidden="true" />
-              <h3 className="font-heading font-semibold text-sm text-white">Education</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                B.Tech ECE, CGPA 8.97 · Minor in AI &amp; ML (CGPA 8.5)
-                <br />
-                VNRVJIET, Hyderabad · 2022 – May 2026
-              </p>
-            </div>
+            <div className="sm:col-span-3 grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="glass p-4 rounded-xl space-y-1.5 hover:border-white/20 transition-colors duration-300">
+                <Book className="text-indigo-400" size={18} aria-hidden="true" />
+                <h3 className="font-heading font-semibold text-xs text-white">Education</h3>
+                <p className="text-[11px] text-gray-500 leading-relaxed">
+                  B.Tech ECE (8.97) · Minor in AI &amp; ML (8.5)
+                  <br />
+                  VNRVJIET · 2022 – May 2026
+                </p>
+              </div>
 
-            <div className="glass p-5 rounded-xl space-y-2 hover:border-white/20 transition-colors duration-300">
-              <FileText className="text-primary" size={20} aria-hidden="true" />
-              <h3 className="font-heading font-semibold text-sm text-white">Research &amp; IP</h3>
-              <p className="text-xs text-gray-500 leading-relaxed">
-                IEEE ICIIP 2025 — 97.75% GI classification accuracy.
-                Patent: AI acoustic rail defect detection (Indian Patent Office).
-              </p>
+              <div className="glass p-4 rounded-xl space-y-1.5 hover:border-white/20 transition-colors duration-300">
+                <FileText className="text-cyan-400" size={18} aria-hidden="true" />
+                <h3 className="font-heading font-semibold text-xs text-white">Research &amp; IP</h3>
+                <p className="text-[11px] text-gray-500 leading-relaxed">
+                  IEEE ICIIP 2025 (97.75% acc)
+                  <br />
+                  Patent: Acoustic rail defect detection
+                </p>
+              </div>
             </div>
           </div>
         </div>
